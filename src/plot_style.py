@@ -23,6 +23,10 @@ AXIS = "#c3c2b7"
 NORMAL = "#2a78d6"
 ABNORMAL = "#eb6834"
 SERIES_1 = NORMAL
+# the two experiments (palette slots 3 and 4; blue/orange stay reserved for normal/abnormal).
+# Low contrast on white, so charts using them also print the values and use different marker shapes.
+RANDOM_SPLIT = "#1baf7a"
+TIME_SPLIT = "#eda100"
 
 FIG_DIR = Path(__file__).resolve().parents[1] / "reports" / "figures"
 
