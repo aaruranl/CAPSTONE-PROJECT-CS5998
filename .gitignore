@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Data: large files are downloaded / regenerated, never committed
+data/raw/
+data/processed/*/*
+data/*.log
+# ...but keep the small preprocessing reports as evidence
+!data/processed/*/summary.json
+!data/processed/*/templates.csv
+
+# OS / editors
+.DS_Store
+.vscode/
+.idea/
