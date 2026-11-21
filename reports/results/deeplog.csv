@@ -1,0 +1,9 @@
+dataset,split,model,kind,threshold,val_f1,precision,recall,f1,f1_ci_low,f1_ci_high,pr_auc,oracle_f1,tp,fp,fn,tn,n_test,n_test_abnormal,train_seconds
+hdfs,random,deeplog,semi-supervised (normal groups only),6.0000,0.8969,0.8078,1.0000,0.8937,0.8857,0.9010,0.9106,0.8937,3367,801,0,110844,115012,3367,25.1000
+hdfs,random,deeplog_ignore_unseen,diagnostic,6.0000,0.8316,0.7865,0.8762,0.8289,0.8193,0.8382,0.7826,0.8289,2950,801,417,110844,115012,3367,25.1000
+hdfs,time,deeplog,semi-supervised (normal groups only),6.0000,0.9749,0.6941,1.0000,0.8194,0.8065,0.8320,0.8633,0.8194,1679,740,0,112593,115012,1679,26.0000
+hdfs,time,deeplog_ignore_unseen,diagnostic,5.0000,0.9685,0.6414,0.9994,0.7814,0.7673,0.7942,0.6528,0.7814,1678,938,1,112395,115012,1679,26.0000
+bgl,random,deeplog,semi-supervised (normal groups only),176.0000,0.9261,0.9898,0.9194,0.9533,0.9321,0.9730,0.9413,0.9533,194,2,17,2686,2899,211,43.6000
+bgl,random,deeplog_ignore_unseen,diagnostic,145.0000,0.3955,0.5207,0.4171,0.4632,0.4011,0.5241,0.5109,0.4742,88,81,123,2607,2899,211,43.6000
+bgl,time,deeplog,semi-supervised (normal groups only),184.0000,0.7213,0.1205,0.9956,0.2150,0.1908,0.2381,0.1204,0.2150,224,1635,1,1039,2899,225,49.8000
+bgl,time,deeplog_ignore_unseen,diagnostic,167.0000,0.6286,0.8710,0.3600,0.5094,0.4366,0.5742,0.4761,0.5125,81,12,144,2662,2899,225,49.8000

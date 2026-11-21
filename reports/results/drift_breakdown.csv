@@ -1,0 +1,12 @@
+dataset,subgroup,model,test_groups_in_subgroup_%,normal_in_subgroup_%,false_alarms,false_alarms_in_subgroup_%,false_alarm_rate_in_subgroup_%,false_alarm_rate_outside_%,abnormal_in_subgroup_%,recall_in_subgroup_%,recall_outside_%
+hdfs,block has no delete step,logreg,60.25,60.08,79,97.47,0.11,0.00,71.89,100.00,97.67
+hdfs,block has no delete step,iforest,60.25,60.08,68499,99.40,100.00,0.91,71.89,100.00,70.55
+hdfs,block has no delete step,deeplog,60.25,60.08,740,25.41,0.28,1.22,71.89,100.00,100.00
+hdfs,block has no delete step,rule_anomaly_only,60.25,60.08,0,0.00,0.00,0.00,71.89,54.60,14.19
+hdfs,block has no delete step,deeplog_ignore_unseen,60.25,60.08,938,30.49,0.42,1.44,71.89,100.00,99.79
+bgl,window has an unseen event,logreg,62.81,61.11,7,14.29,0.06,0.58,83.11,43.85,97.37
+bgl,window has an unseen event,iforest,62.81,61.11,0,0.00,0.00,0.00,83.11,35.29,15.79
+bgl,window has an unseen event,deeplog,62.81,61.11,1635,99.94,100.00,0.10,83.11,100.00,97.37
+bgl,window has an unseen event,rule_anomaly_only,62.81,61.11,1,0.00,0.00,0.10,83.11,52.94,97.37
+bgl,window has an unseen event,rule_fatal,62.81,61.11,118,28.81,2.08,8.08,83.11,100.00,100.00
+bgl,window has an unseen event,deeplog_ignore_unseen,62.81,61.11,12,66.67,0.49,0.38,83.11,39.04,21.05
