@@ -10,6 +10,10 @@ A raw BGL line looks like:
     The label is stored separately and NEVER given to the parser or the models as input.
   * ~34k lines have no content at all (header only). We keep them and give them
     the message "<EMPTY>" so they still count as an event.
+  * 324 lines have no node ("-") and are missing the "node (again)" field, so every
+    later field shifts one place left (found during EDA). We detect and repair them:
+
+    - 1119415930 2005.06.21 - 2005-06-21-21.52.10.214285 RAS KERNEL FATAL Kill job 20251 timed out. Block freed.
 
 BGL has no natural session ID, so we cut the timeline into fixed, non-overlapping
 5-minute windows (aligned to the clock: 00:00-00:05, 00:05-00:10 ...).
@@ -30,7 +34,11 @@ EMPTY_CONTENT = "<EMPTY>"
 
 def parse_bgl_line(line: str):
     """Return (alert_label, unix_seconds, node, component, level, content), or None if malformed."""
-    parts = line.rstrip("\n").split(maxsplit=9)
+    line = line.rstrip("\n")
+    parts = line.split(maxsplit=9)
+    if len(parts) >= 4 and parts[3] == "-":  # node missing -> one header field fewer
+        parts = line.split(maxsplit=8)
+        parts.insert(5, "-")                  # put the missing "node (again)" back
     if len(parts) < 9:
         return None
     try:
@@ -81,7 +89,7 @@ def preprocess_bgl(max_lines: int | None = None, window_minutes: int = config.BG
     enc = {k: CategoryEncoder() for k in codes}
     sequences: dict[int, list[int]] = {w: [] for w in windows["window"]}
     alert_lines: dict[int, int] = dict.fromkeys(windows["window"], 0)
-    n_malformed = n_empty = 0
+    n_malformed = n_empty = n_no_node = 0
 
     with open(log_path, encoding="utf-8", errors="replace") as f:
         for i, line in enumerate(tqdm(f, total=n_lines, desc="BGL pass 2/2 (parse + group)")):
@@ -93,6 +101,7 @@ def preprocess_bgl(max_lines: int | None = None, window_minutes: int = config.BG
                 continue
             alert_type, ts, node, component, level, content = parsed
             n_empty += content == EMPTY_CONTENT
+            n_no_node += node == "-"
 
             learn = ts < cutoff_ts
             if not learn and not parser.frozen:
@@ -141,6 +150,7 @@ def preprocess_bgl(max_lines: int | None = None, window_minutes: int = config.BG
         "lines_total": n_lines,
         "lines_malformed": n_malformed,
         "lines_empty_content": n_empty,
+        "lines_missing_node_repaired": n_no_node,
         "alert_lines": int(alert_arr.sum()),
         "alert_line_rate_%": round(alert_arr[ok].mean() * 100, 3),
         "windows": len(windows),

@@ -67,6 +67,12 @@ Data quality findings:
 - **BGL:** all 4,747,963 lines were readable. Lines are in time order. **34,470 lines have an
   empty message** (header only, level FATAL). They are kept and given the
   message `<EMPTY>`, because "a FATAL record with no text" is itself information.
+- **BGL, found later during EDA:** 324 lines have no node (`-`) *and* are missing the
+  repeated node field, so every later field shifted one place left (e.g. the level
+  became `Kill`). The parser now detects and repairs them. 18 further lines are
+  genuinely corrupted (fragments of other messages inside the header, typical of two
+  processes writing at once) and are left as they are (0.0004% of lines).
+  See [02_eda.md](02_eda.md).
 - BGL's first field is the **answer** (label). It is stored separately and never
   given to the parser or to the models. Using it as an input would be cheating
   (label leakage).
@@ -118,7 +124,7 @@ groups are split, which keeps the comparison fair (a controlled experiment).
 |---|---|---|
 | Lines the parser learned from | 8,041,566 (72%) | 3,681,812 (78%) |
 | Lines matched after freezing | 3,134,063 | 1,066,151 |
-| …of which **unseen** templates | **3 (0.0001%)** | **425,112 (39.9%)** |
+| …of which **unseen** templates | **3 (0.0001%)** | **425,120 (39.9%)** |
 | Templates found | 45 | 622 |
 
 **Checked against Loghub's 29 reference templates for HDFS:** our 45 templates are
@@ -280,7 +286,7 @@ time, not from luck. The time split cannot be stratified without breaking time
 order, and the changing anomaly rate is a real effect we want to measure.
 
 **What happens to a log message the system has never seen?** It becomes event 0
-(`<UNSEEN>`). We count them (3 in HDFS, 425,112 in BGL) and the models will treat
+(`<UNSEEN>`). We count them (3 in HDFS, 425,120 in BGL) and the models will treat
 event 0 as a normal input value.
 
 ## References

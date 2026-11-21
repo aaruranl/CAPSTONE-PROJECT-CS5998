@@ -48,6 +48,15 @@ def test_parse_bgl_lines():
     assert content == EMPTY_CONTENT
 
 
+def test_parse_bgl_line_with_missing_node_is_repaired():
+    # node is "-" and the repeated node field is missing (324 such lines in BGL)
+    line = ("- 1119415930 2005.06.21 - 2005-06-21-21.52.10.214285 RAS KERNEL FATAL "
+            "Kill job 20251 timed out. Block freed.")
+    label, ts, node, component, level, content = parse_bgl_line(line)
+    assert (label, node, component, level) == ("-", "-", "KERNEL", "FATAL")
+    assert content == "Kill job 20251 timed out. Block freed."
+
+
 # ---------------------------------------------------------------- masking + Drain
 def test_mask_replaces_variables():
     content = parse_hdfs_line(HDFS_RAW)[3]

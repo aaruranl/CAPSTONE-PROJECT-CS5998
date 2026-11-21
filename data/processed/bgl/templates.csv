@@ -1,9 +1,9 @@
 event_id,template,occurrences,occurrences_learning_period
 3,generating core.<NUM>,1706751,1706751
-413,iar <*> dear <*>,442966,105082
-0,<UNSEEN>,425112,0
+413,iar <*> dear <*>,442964,105082
+0,<UNSEEN>,425120,0
 11,<NUM> double-hummer alignment exceptions,295764,295764
-222,<NUM> floating point alignment exceptions,267725,184248
+222,<NUM> floating point alignment exceptions,267719,184248
 6,"CE sym <NUM>, at <HEX>, mask <HEX>",201206,144166
 18,data TLB error interrupt,152734,152723
 1,instruction cache parity error corrected,105924,68581
@@ -116,7 +116,7 @@ event_id,template,occurrences,occurrences_learning_period
 70,"ciod: for node <NUM>, read continuation request but ioState is <NUM>",395,395
 205,ciod: Unexpected eof at line <NUM> of node map file <*>,328,288
 251,LinkCard power module U58 is not accessible,319,298
-217,job <NUM> timed out. Block freed.,306,223
+217,Kill job <NUM> timed out. Block freed.,306,223
 23,instruction plb error.............<NUM>,298,214
 26,i-cache parity error..............<NUM>,296,212
 25,tlb error.........................<NUM>,296,212
