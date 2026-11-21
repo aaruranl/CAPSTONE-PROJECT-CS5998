@@ -27,7 +27,10 @@ model is trained only on past logs and tested on future logs?**
 ├── scripts/
 │   ├── 01_download_data.py   # download + checksum + unzip the raw datasets
 │   ├── 02_preprocess.py      # load → parse → group → label → split
-│   └── 03_eda.py             # exploratory data analysis → figures + statistics
+│   ├── 03_eda.py             # exploratory data analysis → figures + statistics
+│   ├── 04_baselines.py       # rules, Logistic Regression, Isolation Forest
+│   ├── 05_deeplog.py         # DeepLog LSTM (improved method)
+│   └── 06_compare.py         # random vs time split comparison → tables + figure
 ├── src/
 │   ├── config.py             # all paths, seeds, ratios and parser settings
 │   ├── log_parser.py         # masking + Drain parser with a learn/freeze life-cycle
@@ -35,11 +38,18 @@ model is trained only on past logs and tested on future logs?**
 │   ├── bgl.py                # BGL-specific preprocessing (group by time window)
 │   ├── splits.py             # random vs chronological train/val/test splits
 │   ├── eda.py                # EDA analysis functions (patterns, overlap, rules)
+│   ├── features.py           # event-count features (log1p, training vocabulary)
+│   ├── rules.py              # the two non-ML baseline rules
+│   ├── baselines.py          # Logistic Regression and Isolation Forest
+│   ├── deeplog.py            # DeepLog: LSTM next-event model
+│   ├── metrics.py            # thresholds, precision/recall/F1, confidence intervals
+│   ├── experiment.py         # shared train → validate → test procedure
 │   ├── plot_style.py         # one shared chart style and colour scheme
 │   └── common.py             # shared helpers
 ├── tests/                    # unit tests (python -m pytest -q)
 ├── docs/                     # explanation of each project step
-├── reports/                  # EDA figures and statistics
+├── reports/                  # figures, EDA statistics and model results
+├── models/                   # trained models (generated, not committed)
 └── data/                     # raw/ and processed/ (generated, not committed)
 ```
 
@@ -52,6 +62,9 @@ pip install -r requirements.txt
 python scripts/01_download_data.py     # ~245 MB download, ~2.3 GB unzipped
 python scripts/02_preprocess.py        # ~2 min on an Apple M2 laptop
 python scripts/03_eda.py               # ~15 s, writes reports/figures/ and reports/eda_stats.json
+python scripts/04_baselines.py         # ~15 s, rules + Logistic Regression + Isolation Forest
+python scripts/05_deeplog.py           # ~3 min on CPU, DeepLog
+python scripts/06_compare.py           # ~3 s, writes reports/results/ and the comparison figure
 python -m pytest -q                    # unit tests
 ```
 
@@ -61,6 +74,6 @@ python -m pytest -q                    # unit tests
 |---|---|---|
 | Data preprocessing | Done | [docs/01_data_preprocessing.md](docs/01_data_preprocessing.md) |
 | Exploratory data analysis | Done | [docs/02_eda.md](docs/02_eda.md) |
-| Baselines (Logistic Regression, Isolation Forest) | Planned | |
-| Improved model (DeepLog LSTM) | Planned | |
+| Baselines (rules, Logistic Regression, Isolation Forest) | Done | [docs/03_models.md](docs/03_models.md) |
+| Improved model (DeepLog LSTM) | Done | [docs/03_models.md](docs/03_models.md) |
 | Scoring API + dashboard | Planned | |
