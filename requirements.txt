@@ -1,9 +1,10 @@
 # Python 3.13 (tested on macOS, Apple M2, 16 GB RAM)
-# Step 1 - data download and preprocessing
+# Steps 1-2 - data download, preprocessing and EDA
 drain3==0.9.11
 numpy==2.5.5
 pandas==3.1.1
 pyarrow==26.0.1
+matplotlib==3.11.2
 requests==2.34.2
 tqdm==4.70.1
 

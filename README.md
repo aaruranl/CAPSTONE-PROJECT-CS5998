@@ -26,16 +26,20 @@ model is trained only on past logs and tested on future logs?**
 ```
 ├── scripts/
 │   ├── 01_download_data.py   # download + checksum + unzip the raw datasets
-│   └── 02_preprocess.py      # load → parse → group → label → split
+│   ├── 02_preprocess.py      # load → parse → group → label → split
+│   └── 03_eda.py             # exploratory data analysis → figures + statistics
 ├── src/
 │   ├── config.py             # all paths, seeds, ratios and parser settings
 │   ├── log_parser.py         # masking + Drain parser with a learn/freeze life-cycle
 │   ├── hdfs.py               # HDFS-specific preprocessing (group by block)
 │   ├── bgl.py                # BGL-specific preprocessing (group by time window)
 │   ├── splits.py             # random vs chronological train/val/test splits
+│   ├── eda.py                # EDA analysis functions (patterns, overlap, rules)
+│   ├── plot_style.py         # one shared chart style and colour scheme
 │   └── common.py             # shared helpers
 ├── tests/                    # unit tests (python -m pytest -q)
 ├── docs/                     # explanation of each project step
+├── reports/                  # EDA figures and statistics
 └── data/                     # raw/ and processed/ (generated, not committed)
 ```
 
@@ -47,6 +51,7 @@ pip install -r requirements.txt
 
 python scripts/01_download_data.py     # ~245 MB download, ~2.3 GB unzipped
 python scripts/02_preprocess.py        # ~2 min on an Apple M2 laptop
+python scripts/03_eda.py               # ~15 s, writes reports/figures/ and reports/eda_stats.json
 python -m pytest -q                    # unit tests
 ```
 
@@ -55,7 +60,7 @@ python -m pytest -q                    # unit tests
 | Step | Status | Notes |
 |---|---|---|
 | Data preprocessing | Done | [docs/01_data_preprocessing.md](docs/01_data_preprocessing.md) |
-| Exploratory data analysis | Planned | |
+| Exploratory data analysis | Done | [docs/02_eda.md](docs/02_eda.md) |
 | Baselines (Logistic Regression, Isolation Forest) | Planned | |
 | Improved model (DeepLog LSTM) | Planned | |
 | Scoring API + dashboard | Planned | |
