@@ -1,0 +1,80 @@
+{
+  "dataset": "BGL",
+  "group_unit": "5-minute window",
+  "lines_total": 4747963,
+  "lines_malformed": 0,
+  "lines_empty_content": 34470,
+  "alert_lines": 348460,
+  "alert_line_rate_%": 7.339,
+  "windows": 14494,
+  "anomalous_windows": 1054,
+  "anomaly_rate_%": 7.272,
+  "time_range": [
+    "2005-06-03 22:42:50",
+    "2006-01-04 16:00:05"
+  ],
+  "parser": {
+    "learning_cutoff_time": "2005-10-31 15:50:00",
+    "lines_learned_from": 3681812,
+    "lines_matched_frozen": 1066151,
+    "lines_unseen_template": 425112,
+    "templates": 622
+  },
+  "events_per_window": {
+    "count": 14494.0,
+    "mean": 327.58,
+    "std": 1645.13,
+    "min": 1.0,
+    "25%": 2.0,
+    "50%": 6.0,
+    "75%": 44.0,
+    "max": 42272.0
+  },
+  "split_random": {
+    "train": {
+      "groups": 10146,
+      "anomalies": 738,
+      "anomaly_rate_%": 7.27,
+      "first_start": "2005-06-03 22:40:00",
+      "last_start": "2006-01-04 16:00:00"
+    },
+    "val": {
+      "groups": 1449,
+      "anomalies": 105,
+      "anomaly_rate_%": 7.25,
+      "first_start": "2005-06-03 22:55:00",
+      "last_start": "2006-01-04 08:40:00"
+    },
+    "test": {
+      "groups": 2899,
+      "anomalies": 211,
+      "anomaly_rate_%": 7.28,
+      "first_start": "2005-06-03 22:50:00",
+      "last_start": "2006-01-04 15:40:00"
+    }
+  },
+  "split_time": {
+    "train": {
+      "groups": 10146,
+      "anomalies": 807,
+      "anomaly_rate_%": 7.95,
+      "first_start": "2005-06-03 22:40:00",
+      "last_start": "2005-10-31 15:45:00"
+    },
+    "val": {
+      "groups": 1449,
+      "anomalies": 22,
+      "anomaly_rate_%": 1.52,
+      "first_start": "2005-10-31 15:50:00",
+      "last_start": "2005-11-09 03:45:00"
+    },
+    "test": {
+      "groups": 2899,
+      "anomalies": 225,
+      "anomaly_rate_%": 7.76,
+      "first_start": "2005-11-09 04:40:00",
+      "last_start": "2006-01-04 16:00:00"
+    }
+  },
+  "runtime_seconds": 27.2
+}

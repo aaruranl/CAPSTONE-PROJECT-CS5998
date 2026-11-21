@@ -1,0 +1,80 @@
+{
+  "dataset": "HDFS",
+  "group_unit": "block",
+  "lines_total": 11175629,
+  "lines_malformed": 0,
+  "lines_without_block_id": 0,
+  "blocks": 575061,
+  "blocks_found_in_log_without_label": 0,
+  "anomalous_blocks": 16838,
+  "anomaly_rate_%": 2.928,
+  "time_range": [
+    "2008-11-09 20:35:18",
+    "2008-11-11 11:16:28"
+  ],
+  "parser": {
+    "learning_cutoff_line": 8041566,
+    "learning_cutoff_time": "2008-11-11 06:00:46",
+    "lines_learned_from": 8041566,
+    "lines_matched_frozen": 3134063,
+    "lines_unseen_template": 3,
+    "templates": 45
+  },
+  "events_per_block": {
+    "count": 575061.0,
+    "mean": 19.43,
+    "std": 5.18,
+    "min": 2.0,
+    "25%": 19.0,
+    "50%": 19.0,
+    "75%": 20.0,
+    "max": 298.0
+  },
+  "split_random": {
+    "train": {
+      "groups": 402543,
+      "anomalies": 11787,
+      "anomaly_rate_%": 2.93,
+      "first_start": "2008-11-09 20:35:18",
+      "last_start": "2008-11-11 11:04:13"
+    },
+    "val": {
+      "groups": 57506,
+      "anomalies": 1684,
+      "anomaly_rate_%": 2.93,
+      "first_start": "2008-11-09 20:35:31",
+      "last_start": "2008-11-11 11:04:02"
+    },
+    "test": {
+      "groups": 115012,
+      "anomalies": 3367,
+      "anomaly_rate_%": 2.93,
+      "first_start": "2008-11-09 20:35:23",
+      "last_start": "2008-11-11 11:03:29"
+    }
+  },
+  "split_time": {
+    "train": {
+      "groups": 402543,
+      "anomalies": 13115,
+      "anomaly_rate_%": 3.26,
+      "first_start": "2008-11-09 20:35:18",
+      "last_start": "2008-11-11 06:00:46"
+    },
+    "val": {
+      "groups": 57506,
+      "anomalies": 2044,
+      "anomaly_rate_%": 3.55,
+      "first_start": "2008-11-11 06:00:46",
+      "last_start": "2008-11-11 07:42:33"
+    },
+    "test": {
+      "groups": 115012,
+      "anomalies": 1679,
+      "anomaly_rate_%": 1.46,
+      "first_start": "2008-11-11 07:42:33",
+      "last_start": "2008-11-11 11:04:13"
+    }
+  },
+  "runtime_seconds": 84.4
+}

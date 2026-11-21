@@ -1,0 +1,624 @@
+event_id,template,occurrences,occurrences_learning_period
+3,generating core.<NUM>,1706751,1706751
+413,iar <*> dear <*>,442966,105082
+0,<UNSEEN>,425112,0
+11,<NUM> double-hummer alignment exceptions,295764,295764
+222,<NUM> floating point alignment exceptions,267725,184248
+6,"CE sym <NUM>, at <HEX>, mask <HEX>",201206,144166
+18,data TLB error interrupt,152734,152723
+1,instruction cache parity error corrected,105924,68581
+376,"idoproxydb hit ASSERT condition: ASSERT expression=<NUM> Source file=idotransportmgr.cpp Source line=<NUM> Function=int IdoTransportMgr::SendPacket(IdoUdpMgr*, BglCtlPavTrace*)",84250,84168
+159,data storage interrupt,63493,63490
+402,ciod: generated <NUM> core files for program <*>,62484,46074
+162,program interrupt: <*> <*>,57874,57832
+19,instruction address: <HEX>,51227,51149
+10,"ciod: Error loading <*> invalid or missing program image, No such file or directory",46416,38752
+16,ciod: LOGIN <*> failed: No such file or directory,43647,39568
+401,"ciod: Error loading <*> invalid or missing program image, Permission denied",43040,21792
+281,<EMPTY>,34470,3693
+4,"<NUM> ddr errors(s) detected and corrected on rank <NUM>, symbol <NUM>, bit <NUM>",33939,30081
+7,total of <NUM> ddr error(s) detected and corrected,28485,24780
+416,Lustre mount FAILED : <*> : point /p/gb1,26426,26426
+324,ciod: Error reading message prefix after <*> on CioStream socket to <IP>: <*> <*> <*> <*>,23219,21687
+295,"ciod: Error loading <*> invalid or missing program image, Exec format error",22040,22024
+131,Node card VPD check: <*> node in processor card slot <*> do not match. VPD ecid <*> found <*>,21356,20112
+165,data store interrupt caused by <*>,19646,19632
+403,rts: kernel terminated for reason <NUM>,18587,13467
+161,machine check: i-fetch......................<NUM>,18017,18010
+160,exception syndrome register: <HEX>,18013,18010
+128,Node card is not fully functional,17364,16278
+129,Can not get assembly information for node card,17305,16219
+130,Node card status: no ALERTs are active. Clock Mode is Low. Clock Select is Midplane. Phy JTAG Reset is asserted. ASIC JTAG Reset is <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> OK. MPGOOD ERROR LATCH IS ACTIVE. The <NUM> volt rail is OK. The <NUM> volt rail is OK.,16897,15813
+57,data address: <HEX>,14499,14485
+552,data cache <*> parity error detected. attempting to correct,14006,13931
+35,floating pt ex mode <NUM> enable......<NUM>,13044,12850
+183,Ido chip status changed: <*> ip=<IP> v=<NUM> t=<NUM> status=M <*> <*> <NUM> <NUM>:<NUM>:<NUM> PDT <NUM>,11904,11306
+56,<NUM> torus receiver <*> input pipe error(s) (dcr <HEX>) detected and corrected,10487,9237
+164,store operation.............................<NUM>,9824,9817
+163,floating point operation....................<NUM>,9824,9817
+29,machine state register: <HEX>,8454,8423
+166,auxiliary processor.........................<NUM>,8419,8412
+167,byte ordering exception.....................<NUM>,8102,8095
+168,program interrupt: fp cr update.............<NUM>,8102,8095
+169,program interrupt: fp cr field .............<NUM>,8102,8095
+12,<NUM> tree receiver <NUM> in re-synch state event(s) (dcr <HEX>) detected,7847,6378
+180,suppressing further interrupts of same type,7694,7597
+216,critical input interrupt (unit=<HEX> bit=<HEX>): warning for <*> <*> wire,7682,7588
+20,machine check <*>,6755,6577
+30,wait state enable.................<NUM>,6745,6645
+31,critical input interrupt enable...<NUM>,6559,6459
+32,external input interrupt enable...<NUM>,6556,6456
+33,"problem state (<NUM>=sup,<NUM>=usr).......<NUM>",6546,6446
+34,floating point <*> <*>,6544,6443
+36,debug wait enable.................<NUM>,6524,6426
+37,debug interrupt enable............<NUM>,6521,6423
+38,instruction address space.........<NUM>,6506,6410
+39,data address space................<NUM>,6503,6407
+41,disable store gathering..................<NUM>,6495,6401
+69,ciod: pollControlDescriptors: Detected the debugger died.,6443,609
+40,core configuration register: <HEX>,6431,6404
+603,"Error receiving packet on tree network, expecting type <NUM> instead of type <NUM> (softheader=0064588e 8aff0003 <NUM> <NUM>) <*> PSR1=<NUM> PRXF=<NUM> PIXF=<NUM>",6145,1024
+17,ciod: failed to read message prefix on control stream (CioStream socket to <IP>,5983,5983
+368,Found invalid node ecid in processor card slot <*> ecid <NUM>,5558,5558
+206,ciod: Error creating node map from file <*> <*> <*> <*>,5464,5424
+375,Lustre mount FAILED : <*> : block_id : location,5105,2665
+5,<NUM> <*> <*> error(s) (dcr <HEX>) detected and corrected,5040,4352
+44,guaranteed <*> cache block <*>,4779,4593
+46,icache prefetch <*>,4777,4591
+322,Ido packet timeout,4276,4184
+48,<NUM>:<NUM> <*> <*> <NUM>:<NUM>,4225,4207
+221,ciod: <*> <*> <NUM> <*> <*> <*> <*> at line <NUM> of node map file <*>,4024,3968
+55,rts panic! - stopping execution,3983,3888
+219,program interrupt,3667,3667
+278,New ido chip inserted into the database: <*> ip=<IP> v=<NUM> t=<NUM>,3455,3453
+279,"rts: kernel terminated for reason 1001rts: bad message header: invalid cpu, type=<NUM>, cpu=<NUM>, index=<NUM>, total=<NUM>",3334,3334
+414,"NFS Mount failed on <*> slept <NUM> seconds, retrying (<NUM>)",2670,2670
+49,<*> <NUM>:<NUM> <*> <NUM>:<NUM>,2661,2653
+71,ciod: cpu <NUM> at treeaddr <NUM> sent unrecognized message <HEX>,2569,2569
+42,disable apu instruction broadcast........<NUM>,2396,2302
+43,disable trace broadcast..................<NUM>,2393,2300
+45,force load/store alignment...............<NUM>,2389,2296
+286,ciod: Error creating node map from file <*> <*> <*>,2328,2296
+47,general purpose registers:,2318,2294
+53,special purpose registers:,2316,2292
+125,"PrepareForService shutting down <*> <*> <*> mIp(<IP>), mType(<NUM>)) as part of Service Action <NUM>",2316,2159
+54,<*> cr:<NUM> xer:<NUM> <*>,2290,2270
+68,ciod: Message code <NUM> is not <NUM> or <NUM>,2278,2278
+66,rts internal error,2187,2172
+135,<*> <*> <NUM>:<NUM> <NUM>:<NUM>,2090,2080
+270,ciod: Missing or invalid fields on line <NUM> of node map file <*>,2048,2048
+172,<NUM>:1feaa7b0 <NUM>:<NUM> <NUM>:000008ce <NUM>:1feaa790,2048,2048
+171,<NUM>:<NUM> <NUM>:4e800020 <*> <*>,2048,2048
+170,<NUM>:000008ce <NUM>:<NUM> <NUM>:1eeeeeee <NUM>:1feaa770,2048,2048
+61,<NUM>:<NUM> <NUM>:1eeeeeee <*> <*>,1995,1989
+247,ciod: Error opening node map file <*> No such file or directory,1936,1928
+215,"ciod: Error loading <*> program image too big, <NUM> > <NUM>",1512,1176
+378,Microloader Assertion,1504,1504
+256,"rts: kernel terminated for reason <*> bad message header: <*> <*> <*> type=<NUM>, cpu=<NUM>, index=<NUM>, <*>",1389,1389
+178,external input interrupt (unit=<HEX> bit=<HEX>): torus sender <*> retransmission error was corrected,1322,1320
+8,ddr: activating redundant bit steering: rank=<NUM> symbol=<NUM>,1314,1314
+75,ciod: LOGIN <*> failed: Permission denied,1288,472
+144,<NUM> torus <*> <*> <*> error(s) (dcr <HEX>) detected and corrected,1217,980
+407,rts: bad message header: expecting type <NUM> instead of type <NUM> <*> <*> <NUM> <NUM>) <*> PSR1=<NUM> <*> PIXF=<NUM>,1146,1146
+2,MidplaneSwitchController performing bit sparing on <*> bit <NUM>,964,964
+359,"Node card VPD check: missing <*> node, VPD ecid <*> in processor card slot <*>",887,885
+283,<NUM>,856,856
+374,Error: unable to mount filesystem,720,720
+404,rts: bad message header: cpu <NUM> invalid <*> <*> <*> <*> PSR0=<NUM> PSR1=<NUM> <*> PIXF=<NUM>,619,619
+24,data <*> plb <*>,593,425
+27,d-cache <*> parity <*>,588,420
+415,CHECK_INITIAL_GLOBAL_INTERRUPT_VALUES,544,544
+126,EndServiceAction is restarting the <*> in midplane <*> as part of Service Action <NUM>,537,472
+373,Missing reverse cable: Cable <*> <NUM> <*> <*> --> <*> <NUM> <*> <*> is present BUT the reverse cable <*> <NUM> <*> <*> --> <*> <NUM> <*> <*> is missing,522,522
+285,ciod: Error creating node map from file /p/gb2/pakin1/sweep3d-5x5x400-10mk-3mmi-1024pes-sweep/sweep.map: Device or resource busy,520,512
+200,"While initializing <*> card iDo machine with LP of <*> caught java.io.IOException: Could not contact iDo with <*> and IP=/<IP> because java.lang.RuntimeException: Communication error: (DirectIDo for Uninitialized DirectIDo for <*> is in state = COMMUNICATION_ERROR, sequenceNumberIsOk = false, ExpectedSequenceNumber = <NUM>, Reply Sequence Number = <NUM>, timedOut = true, retries = <NUM>, timeout = <NUM>, Expected Op Command = <NUM>, Actual Op Reply = <NUM>, Expected Sync Command = <NUM>, Actual Sync Reply = <NUM>)",518,518
+604,ddr: activating redundant bit steering for next allocation: rank=<NUM> symbol=<NUM>,492,44
+70,"ciod: for node <NUM>, read continuation request but ioState is <NUM>",395,395
+205,ciod: Unexpected eof at line <NUM> of node map file <*>,328,288
+251,LinkCard power module U58 is not accessible,319,298
+217,job <NUM> timed out. Block freed.,306,223
+23,instruction plb error.............<NUM>,298,214
+26,i-cache parity error..............<NUM>,296,212
+25,tlb error.........................<NUM>,296,212
+28,imprecise machine check...........<NUM>,289,205
+89,capture first <*> <*> error address..<NUM>,283,109
+249,PrepareForService is being done on this Midplane <*> mCardSernum( <*> by <*>,249,171
+253,LinkCard is not fully functional,248,235
+21,machine check status register: <HEX>,246,218
+22,summary...........................<NUM>,244,216
+406,rts: bad message header: index <NUM> greater than total <NUM> (softheader=<NUM> <*> <NUM> <NUM>) <*> PSR1=<NUM> <*> PIXF=<NUM>,238,238
+127,EndServiceAction <NUM> performed upon <*> by <*>,233,186
+372,Bad cable going into LinkCard <*> Jtag (<NUM>) Port <*> - <NUM> bad wires,232,232
+228,NodeCard power module <*> is not accessible,230,230
+542,Node card status: no ALERTs are active. Clock Mode is Low. Clock Select is Midplane. Phy JTAG Reset is asserted. ASIC JTAG Reset is not asserted. Temperature Mask is not active. No temperature error. Temperature Limit Error Latch is clear. PGOOD IS NOT ASSERTED. PGOOD ERROR LATCH IS ACTIVE. MPGOOD IS NOT OK. MPGOOD ERROR LATCH IS ACTIVE. The <NUM> volt rail is OK. The <NUM> volt rail is OK.,227,227
+386,rts tree/torus link training failed: wanted: <*> C X+ X- Y+ Y- Z+ Z- got: <*> C <*> <*> <*> <*> <*>,214,214
+365,"While initializing service card iDo with LP of <*> caught java.io.IOException: Could not contact iDo with <*> and IP=/<IP> because java.lang.RuntimeException: Communication error: (DirectIDo for Uninitialized DirectIDo for <*> is in state = COMMUNICATION_ERROR, sequenceNumberIsOk = false, ExpectedSequenceNumber = <NUM>, Reply Sequence Number = <NUM>, timedOut = true, retries = <NUM>, timeout = <NUM>, Expected Op Command = <NUM>, Actual Op Reply = <NUM>, Expected Sync Command = <NUM>, Actual Sync Reply = <NUM>)",197,197
+395,"ddr: Unable to steer rank=<NUM>, symbol=<NUM> - rank is already steering symbol <NUM>. Due to multiple symbols being over the correctable error threshold, consider replacing the card",197,93
+51,<NUM>:<NUM> <NUM>:<NUM> <*> <*>,195,179
+78,start <*>,192,76
+271,Power deactivated: <*>,192,192
+104,memory manager <*> <*>,188,72
+257,ciod: In packet from node <NUM> <*> message code <NUM> is not <NUM> or <NUM> <*> <*> <NUM> <NUM>),176,156
+369,"Node card status: ALERT <NUM>, ALERT <NUM>, ALERT <NUM>, ALERT <NUM> is (are) active. Clock Mode is Low. Clock Select is Midplane. Phy JTAG Reset is asserted. ASIC JTAG Reset is not asserted. Temperature Mask is not active. No temperature error. Temperature Limit Error Latch is clear. PGOOD is asserted. PGOOD error latch is clear. MPGOOD is OK. MPGOOD error latch is clear. The <NUM> volt rail is OK. The <NUM> volt rail is OK.",171,171
+388,rts tree/torus link training failed: wanted: A B C X+ X- Y+ Y- Z+ Z- got: A <*> <*> <*> <*> <*> <*> <*>,171,171
+235,MailboxMonitor::serviceMailboxes() lib_ido_error: <NUM> socket closed,168,122
+371,"Problem communicating with service card, ido chip: <*> java.io.IOException: Could not find EthernetSwitch on port:address <NUM>:<NUM>",166,166
+385,MidplaneSwitchController::receiveTrain() iap failed: <*> <*> ec000000,166,158
+85,prefetch depth for <*> <*>,144,57
+101,DDR <*> <*> <*> <HEX> <HEX>,141,54
+122,<HEX> <HEX>,141,54
+97,parity error in read queue <*>,141,54
+93,uncorrectable error detected in <*> <*>,141,54
+96,parity error in <*> <*>,141,54
+58,<NUM>:<NUM> <*> <NUM>:1eeeeeee <*>,134,128
+214,"PrepareForService is being done on this part <*> <*> <*> mIp(<IP>), mType(<NUM>)) by <*>",131,125
+282,max=<NUM>,130,130
+290,DCR <HEX> : <HEX>,130,26
+14,ciodb has been restarted.,129,72
+226,Node card status: no ALERTs are active. Clock Mode is Low. Clock Select is Midplane. Phy JTAG Reset is asserted. ASIC JTAG Reset is asserted. Temperature Mask is not active. No temperature error. Temperature Limit Error Latch is clear. PGOOD IS NOT ASSERTED. PGOOD ERROR LATCH IS ACTIVE. MPGOOD IS NOT OK. MPGOOD ERROR LATCH IS ACTIVE. THE <NUM> VOLT RAIL IS NOT OK. THE <NUM> VOLT RAIL IS NOT OK.,116,116
+60,<*> <NUM>:<NUM> <NUM>:<NUM> <*>,115,112
+405,rts: bad message header: packet index <NUM> greater than max <NUM> (softheader=<NUM> <*> <*> <*> <*> PSR1=<NUM> <*> PIXF=<NUM>,114,114
+13,idoproxydb has been started: $Name: <*> $ Input parameters: -enableflush -loguserinfo db.properties BlueGene1,114,74
+62,<NUM>:<NUM> <*> <NUM>:<NUM> <*>,105,101
+287,"<NUM>, max=<NUM>",103,103
+248,shutdown complete,99,93
+98,number of correctable errors detected in L3 <*>,94,36
+106,memory manager <*>,94,36
+99,interrupt threshold...<NUM>,94,36
+107,memory manager <*> buffer <*>,94,36
+95,uncorrectable error detected in EDRAM bank <NUM>...<NUM>,94,36
+94,correctable error detected in EDRAM bank <NUM>.....<NUM>,94,36
+92,correctable error detected in directory <NUM>......<NUM>,94,36
+59,<NUM>:0000000e <NUM>:000865b0 <*> <*>,90,90
+63,<NUM>:<NUM> <*> <NUM>:000865b0 <NUM>:00089ae0,88,88
+65,<NUM>:<NUM> <*> <*> <NUM>:000865b0,87,87
+389,rts tree/torus link training failed: wanted: <*> C X+ X- Y+ Y- Z+ Z- got: <*> C <*> <*> <*> <*>,82,82
+77,L3 <*> control register: <*>,79,21
+410,mmcs_db_server has been started: ./mmcs_db_server --useDatabase BGL --dbproperties serverdb.properties --iolog /bgl/BlueLight/logs/BGL --reconnect-blocks all --shutdown-timeout <NUM>,72,51
+156,Starting SystemController,71,50
+158,Running as background command,70,49
+199,<*> IpAddress(<IP>) Status(A),64,64
+91,L3 ecc <*> register: <*>,64,35
+303,"ciod: Error loading ../homme/build.Linux/preqx -n <NUM>: invalid or missing program image, No such file or directory",64,64
+234,<*> Message=Invalid JtagId = ffffffff,63,63
+15,mmcs_db_server has been started: <*> --useDatabase BGL --dbproperties <*> --iolog /bgl/BlueLight/logs/BGL --reconnect-blocks all,63,63
+76,machine check interrupt (bit=<HEX>): <*> <*> <*> <*>,62,53
+252,NodeCard is not fully functional,60,60
+367,BGLMaster has been started: ./BGLMaster --consoleip <IP> --consoleport <NUM> --configfile bglmaster.init --autorestart y,59,53
+390,rts tree/torus link training failed: wanted: C X+ X- Y+ Y- Z+ Z- got: C <*> <*> <*> <*> <*>,54,54
+363,Controlling BG/L rows [ <NUM> <NUM> <NUM> <NUM> <NUM> <NUM> <NUM> <NUM> ],50,29
+543,Node card status: no ALERTs are active. Clock Mode is Low. Clock Select is Midplane. Phy JTAG Reset is asserted. ASIC JTAG Reset is not asserted. Temperature Mask is not active. No temperature error. Temperature Limit Error Latch is clear. PGOOD IS NOT ASSERTED. PGOOD ERROR LATCH IS ACTIVE. MPGOOD IS NOT OK. MPGOOD ERROR LATCH IS ACTIVE. THE <NUM> VOLT RAIL IS NOT OK. THE <NUM> VOLT RAIL IS NOT OK.,49,49
+72,machine check interrupt (bit=<HEX>): L2 dcache unit data parity error,49,43
+238,Node card status: no ALERTs are active. Clock Mode is Low. Clock Select is Midplane. Phy JTAG Reset is asserted. ASIC JTAG Reset is asserted. Temperature Mask is not active. No temperature error. Temperature Limit Error Latch is clear. PGOOD IS NOT ASSERTED. PGOOD ERROR LATCH IS ACTIVE. MPGOOD is OK. MPGOOD ERROR LATCH IS ACTIVE. The <NUM> volt rail is OK. The <NUM> volt rail is OK.,49,47
+79,disable speculative access...............<NUM>,48,19
+87,turn on hidden refreshes.................<NUM>,48,19
+80,close EDRAM pages as soon as possible....<NUM>,48,19
+81,size of scratchpad portion of L3.........<NUM> (0M),48,19
+82,disable all access to cache directory....<NUM>,48,19
+83,write buffer commit threshold............<NUM>,48,19
+84,size of DDR we are caching...............<NUM> (512M),48,19
+86,max number of outstanding prefetches.....<NUM>,48,19
+88,disable write lines <NUM>:<NUM>..................<NUM>,48,19
+114,symbol................<NUM>,47,18
+120,qw trapped............<NUM>,47,18
+105,memory manager address parity error..............<NUM>,47,18
+119,correctable error.....<NUM>,47,18
+103,command manager unit summary.....................<NUM>,47,18
+102,memory and bus summary...........................<NUM>,47,18
+121,chip select...........<NUM>,47,18
+100,number of lines with parity errors written to L3 EDRAMs...<NUM>,47,18
+115,mask..................<HEX>,47,18
+118,address parity error..<NUM>,47,18
+90,disable flagging of DDR UE's as major internal error.<NUM>,47,18
+108,memory manager refresh counter timeout...........<NUM>,47,18
+111,regctl scancom interface.........................<NUM>,47,18
+117,uncorrectable error...<NUM>,47,18
+116,miscompare............<NUM>,47,18
+113,capture valid.........<NUM>,47,18
+110,memory manager / command manager address parity..<NUM>,47,18
+109,state machine....................................<NUM>,47,18
+391,rts tree/torus link training failed: wanted: A B C X+ X- Y+ Y- Z+ Z- got: <*> <*> <*> <*> <*> <*> <*>,46,46
+9,"ddr: excessive soft failures, consider replacing the card",41,41
+179,external input interrupt (unit=<HEX> bit=<HEX>): number of corrected SRAM errors has exceeded threshold,39,36
+541,"Error getting detailed hw info for node, caught java.io.IOException: Problems with the chip, could not <*> <*> <*>",35,35
+250,PrepareForService is being done on this rack <*> by <*>,30,28
+280,"rts: kernel terminated for reason 1002rts: bad message header: too many packets, type=<NUM>, cpu=<NUM>, index=<NUM>, total=<NUM>, <*>",28,28
+133,<*> <*> <NUM>:1eeeeeee <NUM>:<NUM>,26,24
+145,L3 correctable errors exceeds threshold (iar <HEX> lr <HEX>),26,6
+301,<NUM>:000894a4 <NUM>:<NUM> <*> <NUM>:b0000040,26,26
+50,<*> <NUM>:1eeeeeee <NUM>:ffffffff <*>,25,24
+209,"ddr: Unable to steer rank=<NUM>, symbol=<NUM> - rank is already steering symbol <NUM>. Due to multiple symbols being over the <*>",24,24
+237,MidplaneSwitchController::sendTrain() port disconnected: R07-M1-L1-U19-E,24,24
+400,ciodb exited abnormally due to signal: Aborted,23,4
+210,"error threshold, consider replacing the card",23,23
+207,"ddr: Unable to steer rank=<NUM>, symbol=<NUM> - rank is already steering symbol <NUM>. Due to multiple symbols being over the correctable e",22,22
+208,"rror threshold, consider replacing the card",22,22
+254,this link card is not fully functional,22,22
+224,"Problem communicating with <*> <*> iDo machine with LP of <*> caught java.lang.IllegalStateException: while executing <*> Operation caught java.lang.RuntimeException: Communication error: (DirectIDo for com.ibm.ido.DirectIDo object <*> with image version <NUM> and card type <NUM>] is in state = COMMUNICATION_ERROR, sequenceNumberIsOk = false, ExpectedSequenceNumber = <NUM>, Reply Sequence Number = <NUM>, timedOut = true, retries = <NUM>, timeout = <NUM>, Expected Op Command = <NUM>, Actual Op Reply = <NUM>, Expected Sync Command = <NUM>, Actual Sync Reply = <NUM>)",21,21
+157,Controlling BG/L rows [ <NUM> <NUM> <NUM> <NUM> ],20,20
+112,DDR failing info register: <HEX>,18,18
+408,kernel panic,18,15
+387,rts tree/torus link training failed: wanted: C X+ X- Y+ Y- Z+ Z- got: C <*> <*> <*> <*>,18,18
+141,<*> <NUM>:1eeeeeee <NUM>:<NUM> <*>,16,11
+284,MidplaneSwitchController::parityAlignment() pap failed: <*> <*> <*>,14,14
+255,no ethernet link,14,12
+323,MailboxMonitor::serviceMailboxes() lib_ido_error: <NUM> BGLERR_IDO_PKT_TIMEOUT connection lost to node/link/service card,14,14
+298,", max=<NUM>",13,13
+291,ax=<NUM>,13,13
+366,"Expected <NUM> active FanModules, but found <NUM> ( Found J300 J301 J302 J303 J304 <*> <*> <*> <*> ).",11,11
+294,mmcs_server exited abnormally due to signal: Aborted,11,11
+340,<*> <NUM>:<NUM> <NUM>:ffffffe8 <*>,11,5
+380,<*> <NUM>:<NUM> <NUM>:000000e0 <NUM>:0008885c,11,11
+381,<NUM>:ffffc0c8 <*> <*> <NUM>:000894a8,11,11
+394,rts tree/torus link training failed: wanted: <*> C X+ X- Y+ Y- Z+ Z- got: <*> C <*> <*> <*>,10,10
+288,external input interrupt (unit=<HEX> bit=<HEX>): uncorrectable torus error,10,2
+289,Torus non-recoverable error DCRs follow.,10,2
+201,NodeCard VPD is corrupt,10,10
+225,"While initializing node card, ido with LP of <*> caught java.lang.IllegalStateException: while executing <*> Operation caught java.lang.RuntimeException: Communication error: (DirectIDo for com.ibm.ido.DirectIDo object <*> with image version <NUM> and card type <NUM>] is in state = COMMUNICATION_ERROR, sequenceNumberIsOk = false, ExpectedSequenceNumber = <NUM>, Reply Sequence Number = <NUM>, timedOut = true, retries = <NUM>, timeout = <NUM>, Expected Op Command = <NUM>, Actual Op Reply = <NUM>, Expected Sync Command = <NUM>, Actual Sync Reply = <NUM>)",10,10
+198,BglIdoChip table has <NUM> IDOs with the same IP address (<IP>),9,9
+236,mmcs_server exited normally with exit code <NUM>,9,8
+202,"While initializing node card, ido with LP of <*> caught java.lang.IllegalStateException: IDo is not in functional state -- currently in state COMMUNICATION_ERROR",9,9
+379,VALIDATE_LOAD_IMAGE_CRC_IN_DRAM,8,8
+220,<*> <NUM>:<NUM> <NUM>:000c65b0 <*>,8,8
+392,rts tree/torus link training failed: wanted: A B C X+ X- Y+ Y- Z+ Z- got: <*> <*> <*> <*> <*> <*>,8,8
+203,<*> <*> <NUM>:<NUM> <NUM>:00089b08,8,8
+218,<*> <NUM>:<NUM> <*> <NUM>:000d0000,7,7
+259,<NUM>:000c8880 <NUM>:<NUM> <*> <*>,7,6
+258,<NUM>:000c5fd8 <NUM>:000c65b0 <*> <*>,7,6
+147,<*> <NUM>:1eeeeeee <*> <NUM>:<NUM>,7,6
+512,lr:<NUM> <*> xer:<NUM> <*>,6,6
+480,<NUM>:ffffffe0 <*> <*> <NUM>:<NUM>,6,2
+364,"Problem communicating with service card, ido chip: <*> java.lang.IllegalStateException: IDo is not in functional state -- currently in state COMMUNICATION_ERROR",6,6
+311,<*> <*> xer:<NUM> ctr:<NUM>,6,6
+197,BGLMaster has been started: ./BGLMaster --consoleip <IP> --consoleport <NUM> --configfile bglmaster.init,6,6
+124,"PrepareForService is being done on this <*> <*> <*> mIp(<IP>), mType(<NUM>)) by root",5,5
+275,machine state register: machine state register: machine state register: machine state register: machine state register: machine,5,5
+276,state register: machine state register: machine state register: machine state register: machine state register: machine state re,5,5
+277,gister: machine state register: machine state register: machine state register: machine state register: machine state register:,5,5
+227,NodeCard temperature sensor chip <*> is not accessible,5,5
+551,"Error sending packet on tree network, packet at address <NUM> is not aligned",5,5
+52,<NUM>:1fefff40 <*> <NUM>:1fefff60 <*>,5,5
+449,<NUM>:000c8818 <NUM>:<NUM> <NUM>:000c9cd0 <NUM>:000c94a8,4,4
+424,EndServiceAction <NUM> was performed upon <*> by <*>,4,3
+64,<*> <*> <NUM>:000865b0 <NUM>:00089ae0,4,4
+272,"Problem reading the ethernet arl entries fro the service card: java.lang.IllegalStateException: while executing I2C Operation caught java.lang.RuntimeException: Communication error: (DirectIDo for com.ibm.ido.DirectIDo object <*> with image version <NUM> and card type <NUM>] is in state = COMMUNICATION_ERROR, sequenceNumberIsOk = false, ExpectedSequenceNumber = <NUM>, Reply Sequence Number = <NUM>, timedOut = true, retries = <NUM>, timeout = <NUM>, Expected Op Command = <NUM>, Actual Op Reply = <NUM>, Expected Sync Command = <NUM>, Actual Sync Reply = <NUM>)",4,4
+447,power module status fault detected on node card. status registers are: <NUM>/<NUM>/<NUM>/<NUM>,4,1
+473,<NUM>:<NUM> <NUM>:0fee0710 <*> <*>,4,4
+377,"Target=ido://FF:F2:9F:<NUM>:E6:<NUM>:<NUM>:0D:<NUM>:E9:<NUM>:FB/JTAG/<NUM> Message=JtagId All all zeros, power good may be low",4,4
+590,L3 major internal error,3,1
+345,mmcs_server exited abnormally due to signal: Segmentation fault,3,3
+317,<NUM>:1feaa410 <NUM>:<NUM> <NUM>:fff9d8b0 <NUM>:b1140400,3,3
+232,Target=ido://FF:F2:9F:<NUM>:E6:<NUM>:<NUM>:0D:<NUM>:E9:<NUM>:<NUM>/JTAG/<NUM> Message=Pll failed to lock,3,3
+318,<NUM>:1feaa340 <*> <*> <NUM>:1feaa4c0,3,3
+233,<*> Message=ScomError,3,3
+490,<NUM>:<NUM> <*> <*> <NUM>:0fea0710,3,3
+138,<*> <NUM>:000000e3 <NUM>:00085fd8 <NUM>:<NUM>,3,3
+544,Node card status: no ALERTs are active. Clock Mode is Low. Clock Select is Midplane. Phy JTAG Reset is asserted. ASIC JTAG Reset is not asserted. Temperature Mask is not active. No temperature error. Temperature Limit Error Latch is clear. PGOOD IS NOT ASSERTED. PGOOD ERROR LATCH IS ACTIVE. MPGOOD IS NOT OK. MPGOOD ERROR LATCH IS ACTIVE. The <NUM> volt rail is OK. THE <NUM> VOLT RAIL IS NOT OK.,3,3
+132,ciod: sendMsgToDebugger: error sending PROGRAM_EXITED message to debugger.,3,2
+260,<NUM>:00085fd8 <NUM>:000865b0 <*> <*>,3,2
+204,<NUM>:ffffca68 <NUM>:<NUM> <NUM>:000894a4 <NUM>:ffffca68,3,3
+358,While inserting monitor info into DB caught java.lang.NullPointerException,2,2
+357,monitor caught java.lang.UnsupportedOperationException: power module <*> not present and is stopping,2,2
+557,rts assertion failed: `personality->version == BGLPERSONALITY_VERSION' in `void start()' at start.cc:<NUM>,2,2
+320,lr:0012cd60 cr:200024c4 xer:<NUM> ctr:0012cce8,2,2
+319,<NUM>:<NUM> <NUM>:1feaa4c0 <NUM>:1feaa3b0 <NUM>:1feaa3a0,2,2
+421,<NUM>:1feaa5a4 <NUM>:0000000d <NUM>:<NUM> <NUM>:000008d8,2,1
+429,<*> <NUM>:<NUM> <*> <NUM>:ff00ff00,2,2
+422,<NUM>:ffffffff <NUM>:<NUM> <*> <NUM>:0feea440,2,2
+499,<NUM>:00378c80 <NUM>:0fea0570 <NUM>:1eeeeeee <*>,2,2
+67,<NUM>:1fe12838 <NUM>:<NUM> <NUM>:001e7ea0 <NUM>:ffffffff,2,1
+261,<*> <NUM>:1eeeeeee <NUM>:2e8ba2e9 <*>,2,2
+417,mmcs_db_server has been started: ./mmcs_db_server --useDatabase BGL --dbproperties serverdb.properties --iolog /bgl/BlueLight/logs/BGL --reconnect-blocks all --no-reconnect-blocks,2,2
+396,<NUM>:000210f8 <NUM>:<NUM> <*> <NUM>:000c8550,2,2
+444,lr:0000a4c0 cr:400024e2 xer:<NUM> <*>,2,2
+382,"Problem communicating with service card, ido chip: <*> java.lang.IllegalStateException: while executing CONTROL Operation caught java.lang.RuntimeException: Communication error: (DirectIDo for com.ibm.ido.DirectIDo object <*> with image version <NUM> and card type <NUM>] is in state = COMMUNICATION_ERROR, sequenceNumberIsOk = false, ExpectedSequenceNumber = <NUM>, Reply Sequence Number = <NUM>, timedOut = true, retries = <NUM>, timeout = <NUM>, Expected Op Command = <NUM>, Actual Op Reply = <NUM>, Expected Sync Command = <NUM>, Actual Sync Reply = <NUM>)",2,2
+123,<NUM>:<NUM> <NUM>:ffffffff <*> <*>,2,2
+393,rts tree/torus link training failed: wanted: C X+ X- Y+ Y- Z+ Z- got: C X+ Y- Z-,2,2
+73,<NUM>:<NUM> <NUM>:00089b10 <NUM>:00089b08 <*>,2,2
+193,<*> <NUM>:<NUM> <*> <NUM>:1fefff60,2,2
+567,<NUM>:<NUM> <*> <*> <NUM>:0fea06f0,2,2
+483,<*> <*> <NUM>:<NUM> <NUM>:00378d10,2,2
+425,<*> <NUM>:<NUM> <NUM>:00089cd0 <NUM>:000894a8,2,2
+383,idoproxydb hit ASSERT condition: ASSERT expression=!(nMsgLen > <HEX>) Source file=idomarshalerio.cpp Source line=<NUM> Function=int IdoMarshalerRecvBuffer::ReadBlock(IdoMsg::IdoMsgHdr*&),2,2
+302,x=<NUM>,2,2
+304,ciodb exited normally with exit code <NUM>,2,2
+305,<*> <NUM>:0d8e7c40 <NUM>:1eeeeeee <*>,2,2
+516,<NUM>:000c9478 <NUM>:000002f0 <NUM>:000d0000 <NUM>:000d0078,1,1
+513,pro,1,1
+515,<NUM>:<NUM> <NUM>:000c8590 <NUM>:000c8580 <NUM>:000c9478,1,1
+511,<NUM>:00f9c330 <NUM>:0033b2a0 <NUM>:00f9a930 <NUM>:09066b70,1,1
+517,<NUM>:1fefff50 <NUM>:<NUM> <NUM>:1fefff70 <NUM>:004ad960,1,1
+514,program,1,1
+527,<NUM>:013f3340 <NUM>:0033c9a0 <NUM>:bff341a9 <NUM>:09092f40,1,1
+518,lr:0001e620 cr:200044e2 xer:<NUM> ctr:002582cc,1,1
+519,<NUM>:000196bd <NUM>:0fea05f0 <NUM>:1eeeeeee <NUM>:09088f00,1,1
+531,<NUM>:0feeaa04 <NUM>:001f7834 <NUM>:008c30e0 <NUM>:<NUM>,1,1
+520,<NUM>:<NUM> <NUM>:09052a80 <NUM>:09092f40 <NUM>:0033c9a0,1,1
+530,<NUM>:<NUM> <NUM>:0026f530 <NUM>:002735f8 <NUM>:000c65b0,1,1
+521,<NUM>:010afa50 <NUM>:1eeeeeee <NUM>:0000bf5c <NUM>:0fee17b8,1,1
+522,<NUM>:01007dd0 <NUM>:1eeeeeee <NUM>:0000beca <NUM>:0fee1394,1,1
+523,<NUM>:000000d6 <NUM>:000000e9 <NUM>:000000ea <NUM>:0fea0700,1,1
+524,<NUM>:000000a2 <NUM>:000000a2 <NUM>:000000a3 <NUM>:0fea0700,1,1
+525,<NUM>:000000bc <NUM>:0fee0700 <NUM>:09052a80 <NUM>:010af8c0,1,1
+529,<NUM>:010b1600 <NUM>:09052a80 <NUM>:09088f00 <NUM>:000865b0,1,1
+528,<NUM>:0fee06ec <NUM>:0000003f <NUM>:<NUM> <NUM>:00e5d280,1,1
+526,<NUM>:<NUM> <NUM>:0fee0700 <NUM>:0fea86f8 <NUM>:000011f0,1,1
+510,<NUM>:0134d370 <NUM>:1eeeeeee <NUM>:00003c8a <NUM>:0fee0a30,1,1
+500,<NUM>:00378d18 <NUM>:014a87f8 <NUM>:09048d10 <NUM>:<NUM>,1,1
+509,<NUM>:011e9430 <NUM>:<NUM> <NUM>:09088df0 <NUM>:090944f0,1,1
+476,<NUM>:09baae88 <NUM>:0000015e <NUM>:01803f98 <NUM>:4c00080b,1,1
+485,<NUM>:000025f8 <NUM>:1eeeeeee <NUM>:05b1f6a0 <NUM>:02a00078,1,1
+484,<NUM>:00002fff <NUM>:1fea89f0 <NUM>:1eeeeeee <NUM>:0851f718,1,1
+482,<NUM>:0153e2f0 <NUM>:0033b2a0 <NUM>:010afa30 <NUM>:090a1df0,1,1
+481,<NUM>:000000a9 <NUM>:000000de <NUM>:000000df <NUM>:0fea0710,1,1
+479,<NUM>:0feea610 <NUM>:<NUM> <NUM>:0000015e <NUM>:0000015e,1,1
+478,<NUM>:0017b5e8 <NUM>:0017b030 <NUM>:0017afcc <NUM>:0feea640,1,1
+477,<NUM>:<NUM> <NUM>:0a5b2910 <NUM>:0feea610 <NUM>:0000000c,1,1
+475,<NUM>:0fea0680 <NUM>:0a013cc0 <NUM>:0a013940 <NUM>:09d31300,1,1
+487,<NUM>:00312c00 <NUM>:<NUM> <NUM>:1fea9bd4 <NUM>:1fea9c40,1,1
+474,<NUM>:0fee06fc <NUM>:01cdb4e0 <NUM>:05cdb3e0 <NUM>:01cdadc0,1,1
+472,<NUM>:0fea04c8 <NUM>:1eeeeeee <NUM>:05cdb550 <NUM>:01cdb5c0,1,1
+471,<NUM>:05ce2cd0 <NUM>:<NUM> <NUM>:0033ba1c <NUM>:0014704c,1,1
+470,<NUM>:01cdb4e0 <NUM>:01cdadc0 <NUM>:0a013960 <NUM>:05cdb3d0,1,1
+469,<NUM>:001470b8 <NUM>:0fea03b0 <NUM>:1eeeeeee <NUM>:05cdb3e0,1,1
+468,<NUM>:017ffcd0 <NUM>:<NUM> <NUM>:017ffc60 <NUM>:00f83ea0,1,1
+467,<NUM>:0feea490 <NUM>:0feea498 <NUM>:<NUM> <NUM>:09a0ef90,1,1
+486,<NUM>:0028e750 <NUM>:1fea9d00 <NUM>:00c80230 <NUM>:<NUM>,1,1
+488,<NUM>:<NUM> <NUM>:01306b40 <NUM>:0906e590 <NUM>:0fea0550,1,1
+508,<NUM>:014f4730 <NUM>:0033b2a0 <NUM>:0127ef70 <NUM>:090945f0,1,1
+533,<NUM>:0a92fef8 <NUM>:0a9362e8 <NUM>:0eac76d8 <NUM>:0eac2888,1,1
+507,<NUM>:011e88c0 <NUM>:1eeeeeee <NUM>:00019cfe <NUM>:0fee0f1c,1,1
+506,<NUM>:011e9688 <NUM>:011e95c0 <NUM>:011e94f8 <NUM>:00148f9c,1,1
+505,<NUM>:014a87b0 <NUM>:08f6a570 <NUM>:08f806f0 <NUM>:09048cf0,1,1
+504,<NUM>:0180c6f0 <NUM>:0033b2a0 <NUM>:0180e430 <NUM>:09048e30,1,1
+503,<NUM>:000002a6 <NUM>:0fee0710 <NUM>:08f6a570 <NUM>:014a7df0,1,1
+502,<NUM>:001fdc08 <NUM>:1eeeeeee <NUM>:000167b5 <NUM>:0fee0a44,1,1
+501,<NUM>:014a8a58 <NUM>:014a8990 <NUM>:014a88c8 <NUM>:0180e4a0,1,1
+498,<NUM>:001f684c <NUM>:<NUM> <NUM>:0feea9fc <NUM>:001f65d8,1,1
+489,<NUM>:01306c00 <NUM>:1eeeeeee <NUM>:00002bdb <NUM>:0fee119c,1,1
+497,<NUM>:0feea9fc <NUM>:001f6854 <NUM>:001f6850 <NUM>:0feea9b8,1,1
+496,lr:0010e064 cr:4440482c xer:<NUM> ctr:00113b58,1,1
+495,<NUM>:<NUM> <NUM>:00d842b0 <NUM>:00ddab50 <NUM>:0026e740,1,1
+494,<NUM>:000000dc <NUM>:08ea7660 <NUM>:000006a1 <NUM>:<NUM>,1,1
+493,<NUM>:00001a90 <NUM>:0002e670 <NUM>:0000020c <NUM>:08e78ea0,1,1
+492,<NUM>:00002e67 <NUM>:0feea5b0 <NUM>:1eeeeeee <NUM>:09f940d0,1,1
+491,<NUM>:01505b70 <NUM>:0033b2a0 <NUM>:01306a70 <NUM>:09084df0,1,1
+532,<NUM>:001f7926 <NUM>:<NUM> <NUM>:008868a0 <NUM>:4c000405,1,1
+546,<NUM>:010fd5bc <NUM>:<NUM> <NUM>:1fe888d0 <NUM>:1fe888c0,1,1
+534,<NUM>:0eaca548 <NUM>:000003e2 <NUM>:0eac8640 <NUM>:0eac0980,1,1
+592,<NUM>:00084fa0 <NUM>:1eeeeeee <NUM>:1f0995a0 <NUM>:004c2450,1,1
+599,<NUM>:00002a58 <NUM>:0fee9ae0 <NUM>:1eeeeeee <NUM>:00d58078,1,1
+598,lr:00146ef4 cr:4a404244 xer:<NUM> ctr:00146df4,1,1
+597,<NUM>:09f913d0 <NUM>:09ff3c50 <NUM>:09ff3cd0 <NUM>:09f91410,1,1
+596,<NUM>:01cdf820 <NUM>:01cde9e0 <NUM>:027d6500 <NUM>:<NUM>,1,1
+595,<NUM>:002580c0 <NUM>:1eeeeeee <NUM>:00036f34 <NUM>:0fee0fbc,1,1
+594,<NUM>:ffffffc0 <NUM>:<NUM> <NUM>:ffffffff <NUM>:00146df4,1,1
+593,<NUM>:c2a385eb <NUM>:c2a67df3 <NUM>:c2a9cc0d <NUM>:c2ad4d2b,1,1
+591,<NUM>:000099c8 <NUM>:<NUM> <NUM>:00084fc0 <NUM>:00084fb0,1,1
+601,<NUM>:<NUM> <NUM>:001d8660 <NUM>:7ff310ca <NUM>:001db728,1,1
+589,<NUM>:003c79b0 <NUM>:09786d40 <NUM>:<NUM> <NUM>:0016ae7c,1,1
+588,<NUM>:09a6dfe8 <NUM>:09bcc138 <NUM>:09f0b638 <NUM>:09f0d5a8,1,1
+587,<NUM>:00192a24 <NUM>:0fe69fc0 <NUM>:1eeeeeee <NUM>:00f88210,1,1
+586,<NUM>:00ff1720 <NUM>:08efcd90 <NUM>:08efb550 <NUM>:08ee7e10,1,1
+585,<NUM>:<NUM> <NUM>:003682a0 <NUM>:010ee8a0 <NUM>:08ee7dd0,1,1
+584,<NUM>:0000002f <NUM>:0fee06f0 <NUM>:08efcd90 <NUM>:00ff3120,1,1
+583,<NUM>:ffff3b5a <NUM>:1eeeeeee <NUM>:00004b6a <NUM>:0fee0bf0,1,1
+600,<NUM>:8000054b <NUM>:001d7050 <NUM>:00d3f6c0 <NUM>:001d0000,1,1
+602,<NUM>:00b10758 <NUM>:00b10378 <NUM>:00b101d0 <NUM>:<NUM>,1,1
+581,<NUM>:003b6f38 <NUM>:00ff1768 <NUM>:08ee7e30 <NUM>:<NUM>,1,1
+614,<NUM>:059e4e60 <NUM>:014ecaf8 <NUM>:00009c40 <NUM>:002d8a78,1,1
+621,<NUM>:<NUM> <NUM>:001d8680 <NUM>:800d2fd0 <NUM>:001db450,1,1
+620,<NUM>:<NUM> <NUM>:0000001c <NUM>:00ea3b20 <NUM>:001d0000,1,1
+619,<NUM>:0000001d <NUM>:0fee9ac0 <NUM>:1eeeeeee <NUM>:00aa6e30,1,1
+618,<NUM>:0b252b10 <NUM>:0029bdd0 <NUM>:00f6b300 <NUM>:00f6b290,1,1
+617,<NUM>:<NUM> <NUM>:0ae672c0 <NUM>:0006d240 <NUM>:00001b4a,1,1
+616,<NUM>:059ae8d8 <NUM>:0597db98 <NUM>:05964e60 <NUM>:05984e60,1,1
+615,<NUM>:0556f1f0 <NUM>:02fa98ac <NUM>:059d4e60 <NUM>:059c2158,1,1
+613,<NUM>:0596b4a0 <NUM>:1eeeeeee <NUM>:0598b4a0 <NUM>:059841d8,1,1
+605,<NUM>:0000001a <NUM>:0fee9b20 <NUM>:1eeeeeee <NUM>:0000001b,1,1
+612,<NUM>:018bcb38 <NUM>:<NUM> <NUM>:015011c0 <NUM>:0595b4a0,1,1
+611,<NUM>:018bcb08 <NUM>:018b8b08 <NUM>:0150b738 <NUM>:018b0b38,1,1
+610,<NUM>:00000cc8 <NUM>:1feaa2a0 <NUM>:1eeeeeee <NUM>:0000018b,1,1
+609,<NUM>:<NUM> <NUM>:00fa4710 <NUM>:00aa3490 <NUM>:00aa3f90,1,1
+608,<NUM>:e76566b9 <NUM>:001d8640 <NUM>:7ffd8b18 <NUM>:001dbc40,1,1
+607,<NUM>:<NUM> <NUM>:3ffd8b18 <NUM>:e76566b9 <NUM>:3ffd8b18,1,1
+606,<NUM>:3ff00000 <NUM>:0fee9af0 <NUM>:1eeeeeee <NUM>:3ff00000,1,1
+582,<NUM>:00ff19c8 <NUM>:00ff1900 <NUM>:00ff1838 <NUM>:0014a8f4,1,1
+580,<NUM>:003b6ea0 <NUM>:0fea0540 <NUM>:1eeeeeee <NUM>:010ee8a0,1,1
+535,<NUM>:000007e0 <NUM>:03636b88 <NUM>:<NUM> <NUM>:0fee9250,1,1
+547,<NUM>:00000c60 <NUM>:0fee8a20 <NUM>:1eeeeeee <NUM>:03a498c0,1,1
+556,ddrSize == <NUM>*<NUM>*<NUM> || ddrSize == <NUM>*<NUM>*<NUM>,1,1
+555,<NUM>:011f7f20 <NUM>:001f7f00 <NUM>:1feaa540 <NUM>:1feaa530,1,1
+554,<NUM>:001f7640 <NUM>:00300c80 <NUM>:00300c90 <NUM>:00300d60,1,1
+553,"ddr: redundant bit steering failed, sequencer timeout",1,1
+550,<NUM>:03a8e780 <NUM>:07a32f20 <NUM>:079d8320 <NUM>:079aad20,1,1
+549,<NUM>:03a890e0 <NUM>:07a8db20 <NUM>:<NUM> <NUM>:07a60520,1,1
+548,<NUM>:03a48c60 <NUM>:03a8db20 <NUM>:03a44220 <NUM>:03a8db20,1,1
+465,<NUM>:0422afa0 <NUM>:03e5efa0 <NUM>:03a92fa0 <NUM>:<NUM>,1,1
+559,<NUM>:000558b0 <NUM>:1eeeeeee <NUM>:01d78220 <NUM>:000fffc0,1,1
+545,<NUM>:00807c00 <NUM>:00807c08 <NUM>:<NUM> <NUM>:fffffffc,1,1
+74,<NUM>:00082d70 <NUM>:00082d78 <NUM>:<NUM> <NUM>:00082d78,1,1
+540,"Error getting detailed hw info for node, caught java.io.IOException: Problems with the chip, clear all resets",1,1
+539,<NUM>:00bb36e0 <NUM>:0178b5c0 <NUM>:017831c0 <NUM>:0177efc0,1,1
+538,<NUM>:<NUM> <NUM>:00b7e6c0 <NUM>:00bb3500 <NUM>:fffffff0,1,1
+537,<NUM>:00ba16e0 <NUM>:017939c0 <NUM>:0160b2c0 <NUM>:0178f7c0,1,1
+536,<NUM>:00b7d6a0 <NUM>:00bb24e0 <NUM>:00b476a0 <NUM>:00bb24e0,1,1
+558,<NUM>:<NUM> <NUM>:0004c5a2 <NUM>:038f9e01 <NUM>:000093ad,1,1
+560,<NUM>:03f2f208 <NUM>:03f2ed90 <NUM>:03f2f268 <NUM>:03f2edf0,1,1
+579,<NUM>:0024710c <NUM>:1eeeeeee <NUM>:00000e38 <NUM>:00038e00,1,1
+571,<NUM>:000000be <NUM>:0bda6f60 <NUM>:1eeeeeee <NUM>:0bf0005f,1,1
+578,<NUM>:0016b348 <NUM>:0fee9f20 <NUM>:1eeeeeee <NUM>:009f3360,1,1
+577,<NUM>:00e6e8e0 <NUM>:<NUM> <NUM>:000002d0 <NUM>:0bda71a0,1,1
+576,<NUM>:<NUM> <NUM>:0bda71a0 <NUM>:0cf13630 <NUM>:0bda71a8,1,1
+575,<NUM>:00e6f630 <NUM>:0cd67b50 <NUM>:03a182f0 <NUM>:000000f0,1,1
+574,<NUM>:00e6ee10 <NUM>:00e6e480 <NUM>:<NUM> <NUM>:00005b46,1,1
+573,<NUM>:000002f8 <NUM>:000000be <NUM>:fff5f8f8 <NUM>:b1141000,1,1
+572,<NUM>:004791c4 <NUM>:<NUM> <NUM>:00e6ee10 <NUM>:0061e5b0,1,1
+570,<NUM>:00f4ddf0 <NUM>:08f6c840 <NUM>:<NUM> <NUM>:00f4eb80,1,1
+561,<NUM>:04d80980 <NUM>:04d80920 <NUM>:04d80e00 <NUM>:04d80da0,1,1
+569,<NUM>:01003df0 <NUM>:003682a0 <NUM>:00f71030 <NUM>:08f7a800,1,1
+568,<NUM>:<NUM> <NUM>:0fee06f0 <NUM>:08f6c840 <NUM>:00f4eaf0,1,1
+566,<NUM>:<NUM> <NUM>:01003ec0 <NUM>:08f6c860 <NUM>:0fea0520,1,1
+565,<NUM>:0000000c <NUM>:000000c0 <NUM>:03f2e5a0 <NUM>:1f7e9dd0,1,1
+564,<NUM>:04d80df8 <NUM>:03f2e900 <NUM>:03f2ed20 <NUM>:03f2e8a0,1,1
+563,<NUM>:000004e8 <NUM>:04d80918 <NUM>:04d80978 <NUM>:04d80d98,1,1
+562,<NUM>:04d80678 <NUM>:1eeeeeee <NUM>:03f2ea80 <NUM>:03f2e600,1,1
+466,<NUM>:0bdf73e0 <NUM>:089ed1fc <NUM>:00228ed0 <NUM>:<NUM>,1,1
+269,<NUM>:000b2ee0 <NUM>:1eeeeeee <NUM>:0000419b <NUM>:001066c0,1,1
+464,<NUM>:<NUM> <NUM>:0bde0038 <NUM>:03a92320 <NUM>:03a92f70,1,1
+335,<NUM>:08d14ff0 <NUM>:08d079a0 <NUM>:08b18ef8 <NUM>:08bd8a18,1,1
+342,<NUM>:0fea0740 <NUM>:<NUM> <NUM>:045dbc80 <NUM>:008d86c0,1,1
+341,<NUM>:008d7190 <NUM>:1eeeeeee <NUM>:0002b4f4 <NUM>:0fee1424,1,1
+223,<NUM>:05bd2790 <NUM>:b1151000 <NUM>:fff09d8c <NUM>:b1151000,1,1
+339,<NUM>:045364c0 <NUM>:045dbc80 <NUM>:<NUM> <NUM>:0032b690,1,1
+338,<NUM>:087c4f30 <NUM>:000001f7 <NUM>:<NUM> <NUM>:087886d0,1,1
+337,<NUM>:08b18f00 <NUM>:08b1e690 <NUM>:08c207a0 <NUM>:08d0b4a0,1,1
+336,<NUM>:08b146a8 <NUM>:<NUM> <NUM>:08b146b0 <NUM>:08bd8a20,1,1
+334,<NUM>:fffffefa <NUM>:1eeeeeee <NUM>:00252d68 <NUM>:08d1aec0,1,1
+344,<NUM>:008d6640 <NUM>:045dbc80 <NUM>:045364c0 <NUM>:<NUM>,1,1
+333,<NUM>:0022af90 <NUM>:<NUM> <NUM>:0022c5d0 <NUM>:0022d570,1,1
+332,<NUM>:d2f1a9fc <NUM>:<NUM> <NUM>:08b19588 <NUM>:08bd90a8,1,1
+331,<NUM>:0011e990 <NUM>:0feea7e0 <NUM>:1eeeeeee <NUM>:08b14d30,1,1
+330,<NUM>:0fee072c <NUM>:<NUM> <NUM>:0fea8738 <NUM>:087d2350,1,1
+329,<NUM>:0fea0740 <NUM>:000001cb <NUM>:0000a774 <NUM>:0fee0740,1,1
+328,<NUM>:0fe9fa90 <NUM>:1eeeeeee <NUM>:0fee0768 <NUM>:0fee0768,1,1
+327,<NUM>:5d93e823 <NUM>:001f0000 <NUM>:5d93e823 <NUM>:013b5ca8,1,1
+343,<NUM>:00f9ce00 <NUM>:0032b690 <NUM>:01abdb40 <NUM>:<NUM>,1,1
+346,<NUM>:00000f0d <NUM>:02e05990 <NUM>:00003c34 <NUM>:<NUM>,1,1
+194,<NUM>:0000c000 <NUM>:0000c000 <NUM>:<NUM> <NUM>:1fea9f64,1,1
+356,<NUM>:000001f4 <NUM>:0000000c <NUM>:0036b7d8 <NUM>:<NUM>,1,1
+196,<NUM>:06a55c20 <NUM>:06a55c1c <NUM>:<NUM> <NUM>:1feaa420,1,1
+211,<NUM>:08958fe0 <NUM>:1fea9330 <NUM>:1eeeeeee <NUM>:08958fd0,1,1
+212,<NUM>:1fea9a28 <NUM>:000e3760 <NUM>:00016bf0 <NUM>:0000000b,1,1
+362,Added <NUM> subnets and <NUM> addresses to DB,1,1
+361,DeclareServiceNetworkCharacteristics has been run with the force option but the DB is not empty,1,1
+360,DeclareServiceNetworkCharacteristics has been run but the DB is not empty,1,1
+213,<NUM>:00788f60 <NUM>:00005afc <NUM>:0d476760 <NUM>:0d6ebda0,1,1
+355,<NUM>:09277d28 <NUM>:09293a68 <NUM>:096c9368 <NUM>:09707a38,1,1
+347,<NUM>:00238bb8 <NUM>:00238e68 <NUM>:<NUM> <NUM>:00238e50,1,1
+354,<NUM>:00005c30 <NUM>:<NUM> <NUM>:002398a0 <NUM>:01dbf2a0,1,1
+353,<NUM>:0000000a <NUM>:00a9cb80 <NUM>:<NUM> <NUM>:ffffffff,1,1
+352,<NUM>:0000b3db <NUM>:000001d0 <NUM>:<NUM> <NUM>:0038adf0,1,1
+351,<NUM>:bfee7466 <NUM>:0fee9b40 <NUM>:1eeeeeee <NUM>:01dc0f4c,1,1
+350,<NUM>:0038b380 <NUM>:00238b70 <NUM>:00238df8 <NUM>:00238e20,1,1
+349,<NUM>:00238df0 <NUM>:00238ac8 <NUM>:0038b360 <NUM>:0038fe30,1,1
+348,<NUM>:00238a30 <NUM>:00238ce0 <NUM>:00238aa0 <NUM>:<NUM>,1,1
+326,<NUM>:0347ed40 <NUM>:01b00000 <NUM>:0442eda0 <NUM>:<NUM>,1,1
+325,<NUM>:1fea443c <NUM>:ba1cfa4f <NUM>:003e98e0 <NUM>:<NUM>,1,1
+229,NodeCard VPD chip is not accessible,1,1
+262,<NUM>:14048d78 <NUM>:1416a548 <NUM>:140d9a08 <NUM>:14048ec8,1,1
+293,MailboxMonitor::serviceMailboxes() lib_ido_error: <NUM> unexpected socket error: Broken pipe,1,1
+292,<NUM>:08836a60 <NUM>:b1151400 <NUM>:fff1f0dc <NUM>:b1151400,1,1
+242,<NUM>:009e8730 <NUM>:<NUM> <NUM>:009e8730 <NUM>:00006c00,1,1
+243,<NUM>:4040c4e2 <NUM>:1eeeeeee <NUM>:009e7f40 <NUM>:009a9a20,1,1
+244,<NUM>:00a29bb0 <NUM>:<NUM> <NUM>:009e7d30 <NUM>:009e7b20,1,1
+245,<NUM>:005cd234 <NUM>:009e8340 <NUM>:<NUM> <NUM>:0000001f,1,1
+246,lr:004799e4 cr:4040c4e2 xer:<NUM> ctr:00481f5c,1,1
+263,<NUM>:1416a3f8 <NUM>:140457a8 <NUM>:141f7968 <NUM>:141fb088,1,1
+230,"While initializing node card, ido with LP of FF:F2:9F:<NUM>:E6:<NUM>:<NUM>:0D:<NUM>:E9:<NUM>:<NUM> caught java.lang.NullPointerException",1,1
+264,<NUM>:140d6070 <NUM>:14166bb0 <NUM>:141fae10 <NUM>:14048c50,1,1
+265,<NUM>:140d9790 <NUM>:1416a2d0 <NUM>:141f7840 <NUM>:14166d00,1,1
+266,<NUM>:06f4b0b8 <NUM>:140d6198 <NUM>:141f7818 <NUM>:14166cd8,1,1
+267,<NUM>:<NUM> <NUM>:141faf38 <NUM>:140d62e8 <NUM>:14166e28,1,1
+268,<NUM>:000b2f60 <NUM>:000b2f50 <NUM>:0000911c <NUM>:000b2f30,1,1
+274,machine state register:,1,1
+273,parity error.......<NUM>,1,1
+241,<NUM>:b1144000 <NUM>:b1144000 <NUM>:009e7f40 <NUM>:00a29bb0,1,1
+240,<NUM>:020031c0 <NUM>:199670d0 <NUM>:1eeeeeee <NUM>:009e8390,1,1
+296,<NUM>:0000085d <NUM>:1fea89d0 <NUM>:1eeeeeee <NUM>:09470ef4,1,1
+297,<NUM>:0000012c <NUM>:0831a460 <NUM>:0831a460 <NUM>:00000e66,1,1
+321,<NUM>:02000a8a <NUM>:1feaa370 <NUM>:1eeeeeee <NUM>:002129d0,1,1
+316,<NUM>:0efe7938 <NUM>:01f80fd8 <NUM>:01f80fa0 <NUM>:01f80be0,1,1
+315,<NUM>:01980b98 <NUM>:0efe7d38 <NUM>:0efe7cf8 <NUM>:0efe7900,1,1
+314,<NUM>:01f80f68 <NUM>:01980fd8 <NUM>:01980f98 <NUM>:01980bd8,1,1
+313,<NUM>:0e7e7900 <NUM>:0e7e7940 <NUM>:0e7e7d00 <NUM>:<NUM>,1,1
+312,<NUM>:<NUM> <NUM>:0f7e7940 <NUM>:0f7e7d00 <NUM>:0f7e7d40,1,1
+231,"Node card status: ALERT <NUM>, ALERT <NUM>, ALERT <NUM>, ALERT <NUM> is (are) active. Clock Mode is Low. Clock Select is Midplane. Phy JTAG Reset is asserted. ASIC JTAG Reset is not asserted. TEMPERATURE MASK IS ACTIVE. No temperature error. Temperature Limit Error Latch is clear. PGOOD is asserted. PGOOD error latch is clear. MPGOOD is OK. MPGOOD error latch is clear. The <NUM> volt rail is OK. The <NUM> volt rail is OK.",1,1
+310,<NUM>:0f012738 <NUM>:01fabdd8 <NUM>:01fabda0 <NUM>:01fab9e0,1,1
+309,<NUM>:019ab998 <NUM>:0f012b38 <NUM>:0f012af8 <NUM>:0f012700,1,1
+308,<NUM>:01fabd68 <NUM>:019abdd8 <NUM>:019abd98 <NUM>:019ab9d8,1,1
+307,<NUM>:0e812700 <NUM>:0e812740 <NUM>:0e812b00 <NUM>:<NUM>,1,1
+306,<NUM>:<NUM> <NUM>:0f812740 <NUM>:0f812b00 <NUM>:0f812b40,1,1
+300,<NUM>:0f4ca300 <NUM>:<NUM> <NUM>:0691eb40 <NUM>:1fea8d40,1,1
+299,<NUM>:0691eb70 <NUM>:b1140400 <NUM>:fff1f0dc <NUM>:b1140400,1,1
+239,"e error threshold, consider replacing the card",1,1
+195,<NUM>:000003ff <NUM>:0000003f <NUM>:0000003f <NUM>:<NUM>,1,1
+370,idoproxy exited normally with exit code <NUM>,1,1
+463,<NUM>:0bde3578 <NUM>:0001b588 <NUM>:<NUM> <NUM>:800006a7,1,1
+432,<NUM>:880024e2 <NUM>:1eeeeeee <NUM>:001b0000 <NUM>:001b0000,1,1
+439,<NUM>:000018e3 <NUM>:000000f5 <NUM>:000002c4 <NUM>:001f7a58,1,1
+438,<NUM>:000007a8 <NUM>:0903ce20 <NUM>:000084ae <NUM>:<NUM>,1,1
+437,external input interrupt (unit=<HEX> bit=<HEX>): tree header with no target waiting,1,1
+436,lr:00107b9c cr:880224e4 xer:<NUM> ctr:0013c18c,1,1
+435,<NUM>:4c00010d <NUM>:4c00010d <NUM>:0089dc60 <NUM>:<NUM>,1,1
+434,<NUM>:00b5fd60 <NUM>:001ecccc <NUM>:<NUM> <NUM>:0091e170,1,1
+433,<NUM>:001b0000 <NUM>:001b0000 <NUM>:001b0000 <NUM>:008ddc70,1,1
+431,<NUM>:00210df0 <NUM>:<NUM> <NUM>:0feea390 <NUM>:0111ef00,1,1
+441,<NUM>:090337e8 <NUM>:<NUM> <NUM>:0971de18 <NUM>:0971e638,1,1
+430,<NUM>:0111ba70 <NUM>:0101ba60 <NUM>:<NUM> <NUM>:0feea350,1,1
+428,lr:0014b240 cr:480042e4 xer:<NUM> ctr:001658c0,1,1
+427,<NUM>:0081a2f0 <NUM>:<NUM> <NUM>:0feea380 <NUM>:009ec660,1,1
+426,<NUM>:<NUM> <NUM>:001ea6fc <NUM>:0feea380 <NUM>:00212cd0,1,1
+423,<NUM>:001f9c00 <NUM>:<NUM> <NUM>:001f9280 <NUM>:0021d200,1,1
+420,<NUM>:0021d210 <NUM>:1feaa59c <NUM>:1feaa5a0 <NUM>:1feaa5a4,1,1
+419,<NUM>:0000e208 <NUM>:1feaa590 <NUM>:1eeeeeee <NUM>:001f9280,1,1
+440,<NUM>:089af7b0 <NUM>:0026e740 <NUM>:00997ee0 <NUM>:00997e70,1,1
+442,<NUM>:<NUM> <NUM>:002cf5e0 <NUM>:0030b3b8 <NUM>:00274fb0,1,1
+192,<NUM>:05ff6fc0 <NUM>:b1150800 <NUM>:fff1f0fc <NUM>:b1150800,1,1
+455,<NUM>:00007ef4 <NUM>:b1144000 <NUM>:0ae73210 <NUM>:0947d370,1,1
+462,<NUM>:800006a7 <NUM>:0feea300 <NUM>:1eeeeeee <NUM>:0bdfa920,1,1
+461,<NUM>:<NUM> <NUM>:0fee97f8 <NUM>:0fee94f0 <NUM>:074ac9e4,1,1
+460,<NUM>:01a86cd4 <NUM>:000000af <NUM>:0fee93b0 <NUM>:01a86cdc,1,1
+459,<NUM>:<NUM> <NUM>:09faec80 <NUM>:0001fbd0 <NUM>:09faecd0,1,1
+458,<NUM>:0adf3200 <NUM>:0917d310 <NUM>:091fd320 <NUM>:0fee8c80,1,1
+457,<NUM>:094fd380 <NUM>:0947d370 <NUM>:b1144000 <NUM>:<NUM>,1,1
+456,<NUM>:0af7d898 <NUM>:001fbd00 <NUM>:0ae73210 <NUM>:<NUM>,1,1
+454,<NUM>:0036d808 <NUM>:0fee8af0 <NUM>:1eeeeeee <NUM>:006c20d0,1,1
+443,<NUM>:<NUM> <NUM>:00272b10 <NUM>:008c7560 <NUM>:001fd2f8,1,1
+453,<NUM>:1a3a4f10 <NUM>:1842a5d0 <NUM>:0c294c30 <NUM>:0c294b30,1,1
+452,<NUM>:1a3a4c00 <NUM>:0000cc00 <NUM>:0c294b40 <NUM>:<NUM>,1,1
+451,<NUM>:18429ff0 <NUM>:0c287f40 <NUM>:1a3a4000 <NUM>:<NUM>,1,1
+450,<NUM>:0000c000 <NUM>:1fea9d90 <NUM>:1eeeeeee <NUM>:1a398000,1,1
+448,<NUM>:00211a50 <NUM>:<NUM> <NUM>:0feea3c0 <NUM>:00b5d6b0,1,1
+446,<NUM>:1feaa680 <NUM>:1feaa748 <NUM>:094c4de8 <NUM>:0022a210,1,1
+445,<NUM>:00000bb8 <NUM>:00000bb8 <NUM>:002b09b0 <NUM>:094c4df0,1,1
+418,<NUM>:1b3acb30 <NUM>:18709e10 <NUM>:10115c70 <NUM>:10115b70,1,1
+134,<NUM>:000558a0 <NUM>:1eeeeeee <NUM>:0178fa90 <NUM>:0002ac00,1,1
+136,<NUM>:0000055f <NUM>:0c5cc1e0 <NUM>:<NUM> <NUM>:04ed1b98,1,1
+384,idoproxydb hit ASSERT condition: ASSERT expression=!(RecvMsgHdr.ulLen > <HEX>) Source file=idomarshalerio.cpp Source line=<NUM> Function=virtual int IdoMarshalerIo::RunRecv(),1,1
+173,<NUM>:0035fd54 <NUM>:1fea9830 <NUM>:1eeeeeee <NUM>:007c2130,1,1
+174,<NUM>:1fea96f0 <NUM>:<NUM> <NUM>:02a02600 <NUM>:0098a3b0,1,1
+175,<NUM>:0045b788 <NUM>:1eeeeeee <NUM>:009823a0 <NUM>:02a02600,1,1
+176,<NUM>:029fa5f0 <NUM>:<NUM> <NUM>:066aa9b0 <NUM>:066a29a0,1,1
+177,<NUM>:<NUM> <NUM>:1fea98c0 <NUM>:0000000e <NUM>:006af8d0,1,1
+181,<NUM>:00000bd5 <NUM>:071c9ae0 <NUM>:00002f54 <NUM>:<NUM>,1,1
+182,<NUM>:002366e0 <NUM>:002363b8 <NUM>:00388c50 <NUM>:0038d720,1,1
+184,<NUM>:10cae050 <NUM>:b1150400 <NUM>:fff1f0fc <NUM>:b1150400,1,1
+137,<NUM>:000012c0 <NUM>:0000055f <NUM>:<NUM> <NUM>:04ecf0a0,1,1
+185,<NUM>:30008e90 <NUM>:30008f40 <NUM>:<NUM> <NUM>:30008e30,1,1
+186,<NUM>:01360ec8 <NUM>:0fea05d0 <NUM>:1eeeeeee <NUM>:01300fc8,1,1
+187,<NUM>:01360ec8 <NUM>:01300fc8 <NUM>:000001ff <NUM>:<NUM>,1,1
+188,<NUM>:000001ff <NUM>:1eeeeeee <NUM>:0fee0b88 <NUM>:0000003a,1,1
+189,<NUM>:0fea0700 <NUM>:000000ff <NUM>:0000000d <NUM>:00c80d80,1,1
+190,<NUM>:00c7a218 <NUM>:003223e0 <NUM>:00c7a368 <NUM>:01d56830,1,1
+191,<NUM>:00c80d48 <NUM>:00f97c30 <NUM>:00926dc0 <NUM>:00b0f6b0,1,1
+155,<NUM>:006af9f4 <NUM>:007c1fb0 <NUM>:00007e08 <NUM>:007c2000,1,1
+154,<NUM>:0cdc1fe0 <NUM>:<NUM> <NUM>:009e7400 <NUM>:1fea8b80,1,1
+153,<NUM>:00a2104c <NUM>:0007e080 <NUM>:06412ce0 <NUM>:<NUM>,1,1
+397,<NUM>:167f5ff0 <NUM>:13ec5b80 <NUM>:17c63000 <NUM>:<NUM>,1,1
+412,<NUM>:<NUM> <NUM>:00220aa0 <NUM>:00004c42 <NUM>:0feea1b0,1,1
+411,<NUM>:00158e00 <NUM>:0feea1a0 <NUM>:1eeeeeee <NUM>:00e4bc60,1,1
+139,<NUM>:<NUM> <NUM>:ffff96e0 <NUM>:fffbccf0 <NUM>:0f554c48,1,1
+409,external input interrupt (unit=<HEX> bit=<HEX>): 1M tree receiver <NUM> in resynch mode,1,1
+140,<NUM>:0f4c4108 <NUM>:0d563fc0 <NUM>:0d7679b8 <NUM>:<NUM>,1,1
+142,<NUM>:004d96ac <NUM>:0d6323c0 <NUM>:07bd4840 <NUM>:0567a810,1,1
+143,<NUM>:0007d000 <NUM>:0b798900 <NUM>:<NUM> <NUM>:00090b40,1,1
+146,<NUM>:00000fc5 <NUM>:0007d000 <NUM>:fffa8840 <NUM>:0006d600,1,1
+148,<NUM>:069df3b0 <NUM>:06b563b0 <NUM>:066ccbc0 <NUM>:004d8f30,1,1
+149,<NUM>:0deed738 <NUM>:0d9ccf30 <NUM>:0f5ef850 <NUM>:0f572850,1,1
+150,<NUM>:0f6e9850 <NUM>:0daa7b30 <NUM>:0f66c850 <NUM>:0df5ad38,1,1
+151,<NUM>:0da3a530 <NUM>:059674c0 <NUM>:0dfc8338 <NUM>:0e110530,1,1
+152,<NUM>:00001f82 <NUM>:b1144000 <NUM>:06412ce0 <NUM>:0cdc1fe0,1,1
+399,<NUM>:17c64550 <NUM>:167f7260 <NUM>:13ecf870 <NUM>:13ecf770,1,1
+398,<NUM>:17c63c00 <NUM>:00009c00 <NUM>:13ecf780 <NUM>:<NUM>,1,1
+622,<NUM>:<NUM> <NUM>:001d6f20 <NUM>:00aa3260 <NUM>:00aa3580,1,1
