@@ -150,6 +150,8 @@ def preprocess_hdfs(max_lines: int | None = None) -> dict:
     learned_mask = np.arange(n_lines) < cutoff_line
     templates = templates_table(parser, eid_arr, learned_mask)
     templates.to_csv(out_dir / "templates.csv", index=False)
+    parser.freeze()
+    parser.save(out_dir / "parser.pkl")  # used by the scoring engine (src/engine.py)
 
     summary = {
         "dataset": "HDFS",

@@ -227,6 +227,7 @@ re-create them with the scripts):
 | `lines.parquet` | log line | `timestamp`, `event_id`, `level`, `component` (+ BGL: `is_alert`, `alert_type`, `node`) |
 | `templates.csv` | event template | `event_id`, `template`, `occurrences`, `occurrences_learning_period` |
 | `summary.json` | dataset | all counts and split statistics shown above |
+| `parser.pkl` | – | the frozen Drain parser, saved for the scoring engine (added in Milestone 3, docs/04_scoring_engine.md) |
 
 *Parquet* is a compressed, column-based file format: much smaller and faster
 to load than CSV, and it keeps data types (dates stay dates, lists stay lists).

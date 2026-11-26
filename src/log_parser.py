@@ -17,6 +17,7 @@ templates from training-period logs. After `freeze()` it can only MATCH new
 messages to templates it already knows. Messages that match nothing become
 event 0 ("<UNSEEN>"), which is exactly what a deployed system would face.
 """
+import pickle
 import re
 
 from drain3.drain import Drain
@@ -95,6 +96,24 @@ class DrainParser:
 
     def parse(self, message: str, learn: bool) -> int:
         return self.learn(message) if learn else self.match(message)
+
+    # -- saving / loading ------------------------------------------------------
+    def save(self, path) -> None:
+        """Save the FROZEN parser, so the scoring engine matches new lines exactly as in training."""
+        if not self.frozen:
+            raise RuntimeError("freeze the parser before saving it")
+        state = {**self.__dict__, "_match_cache": {}}  # the cache is rebuilt on use
+        with open(path, "wb") as f:
+            pickle.dump(state, f)
+
+    @classmethod
+    def load(cls, path) -> "DrainParser":
+        """Load a parser written by save(). Only load files this project created (pickle can run code)."""
+        parser = cls.__new__(cls)
+        with open(path, "rb") as f:
+            parser.__dict__.update(pickle.load(f))
+        parser.n_matched = parser.n_unseen = 0  # count only what happens after loading
+        return parser
 
     # -- reporting -------------------------------------------------------------
     def templates(self) -> dict[int, str]:
