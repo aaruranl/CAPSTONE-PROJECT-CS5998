@@ -81,7 +81,11 @@ def main() -> None:
                 rows.append(record(dataset, split, name, kind, parts,
                                    anomaly_scores(model, X["val"]), anomaly_scores(model, X["test"]), seconds))
                 show(rows[-1])
-                joblib.dump({"features": features, "model": model, "threshold": rows[-1]["threshold"]},
+                # the average NORMAL training group: the reference point for explaining alerts (src/engine.py)
+                normal = y_train == 0
+                joblib.dump({"features": features, "model": model, "threshold": rows[-1]["threshold"],
+                             "normal_mean": X["train"][normal].mean(axis=0),
+                             "normal_mean_counts": features.counts(parts["train"]["event_ids"][normal]).mean(axis=0)},
                             MODELS_DIR / f"{dataset}_{split}_{name}.joblib")
 
     RESULTS_DIR.mkdir(parents=True, exist_ok=True)
