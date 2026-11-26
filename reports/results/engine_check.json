@@ -1,0 +1,77 @@
+{
+  "hdfs": {
+    "test_groups": 115012,
+    "raw_lines_read": 2163435,
+    "lines": 2163435,
+    "malformed": 0,
+    "without_group": 0,
+    "unseen_messages": 0,
+    "lines_per_second_parse_and_group": 204001,
+    "event_sequence_mismatches": 0,
+    "detectors": {
+      "logreg": {
+        "max_score_difference": 0.0,
+        "decision_mismatches": 0,
+        "alerts": 1747,
+        "score_0_1_threshold_is_0.5": true,
+        "groups_per_second": 130046
+      },
+      "iforest": {
+        "max_score_difference": 0.0,
+        "decision_mismatches": 0,
+        "alerts": 70039,
+        "score_0_1_threshold_is_0.5": true,
+        "groups_per_second": 115461
+      },
+      "deeplog": {
+        "max_score_difference": 0.0,
+        "decision_mismatches": 0,
+        "alerts": 2419,
+        "score_0_1_threshold_is_0.5": true,
+        "groups_per_second": 29044
+      }
+    },
+    "seconds_total": 18.9
+  },
+  "bgl": {
+    "test_groups": 2899,
+    "raw_lines_read": 628954,
+    "lines": 628954,
+    "malformed": 0,
+    "without_group": 0,
+    "unseen_messages": 423650,
+    "lines_per_second_parse_and_group": 160853,
+    "event_sequence_mismatches": 0,
+    "detectors": {
+      "rule_fatal": {
+        "max_score_difference": 0.0,
+        "decision_mismatches": 0,
+        "alerts": 343,
+        "score_0_1_threshold_is_0.5": true,
+        "groups_per_second": 83109
+      },
+      "logreg": {
+        "max_score_difference": 0.0,
+        "decision_mismatches": 0,
+        "alerts": 126,
+        "score_0_1_threshold_is_0.5": true,
+        "groups_per_second": 49002
+      },
+      "iforest": {
+        "max_score_difference": 0.0,
+        "decision_mismatches": 0,
+        "alerts": 72,
+        "score_0_1_threshold_is_0.5": true,
+        "groups_per_second": 51232
+      },
+      "deeplog": {
+        "max_score_difference": 0.0,
+        "decision_mismatches": 0,
+        "alerts": 1859,
+        "score_0_1_threshold_is_0.5": true,
+        "groups_per_second": 365
+      }
+    },
+    "seconds_total": 13.7
+  }
+}

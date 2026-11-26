@@ -30,7 +30,8 @@ model is trained only on past logs and tested on future logs?**
 │   ├── 03_eda.py             # exploratory data analysis → figures + statistics
 │   ├── 04_baselines.py       # rules, Logistic Regression, Isolation Forest
 │   ├── 05_deeplog.py         # DeepLog LSTM (improved method)
-│   └── 06_compare.py         # random vs time split comparison → tables + figure
+│   ├── 06_compare.py         # random vs time split comparison → tables + figure
+│   └── 08_check_engine.py    # proves the scoring engine reproduces the evaluated results
 ├── src/
 │   ├── config.py             # all paths, seeds, ratios and parser settings
 │   ├── log_parser.py         # masking + Drain parser with a learn/freeze life-cycle
@@ -44,6 +45,7 @@ model is trained only on past logs and tested on future logs?**
 │   ├── deeplog.py            # DeepLog: LSTM next-event model
 │   ├── metrics.py            # thresholds, precision/recall/F1, confidence intervals
 │   ├── experiment.py         # shared train → validate → test procedure
+│   ├── engine.py             # scoring engine: raw lines → score 0-1, label, reasons
 │   ├── plot_style.py         # one shared chart style and colour scheme
 │   └── common.py             # shared helpers
 ├── tests/                    # unit tests (python -m pytest -q)
@@ -65,6 +67,7 @@ python scripts/03_eda.py               # ~15 s, writes reports/figures/ and repo
 python scripts/04_baselines.py         # ~15 s, rules + Logistic Regression + Isolation Forest
 python scripts/05_deeplog.py           # ~3 min on CPU, DeepLog
 python scripts/06_compare.py           # ~3 s, writes reports/results/ and the comparison figure
+python scripts/08_check_engine.py      # ~35 s, scoring engine vs offline results
 python -m pytest -q                    # unit tests
 ```
 
@@ -76,4 +79,5 @@ python -m pytest -q                    # unit tests
 | Exploratory data analysis | Done | [docs/02_eda.md](docs/02_eda.md) |
 | Baselines (rules, Logistic Regression, Isolation Forest) | Done | [docs/03_models.md](docs/03_models.md) |
 | Improved model (DeepLog LSTM) | Done | [docs/03_models.md](docs/03_models.md) |
-| Scoring API + dashboard | Planned | |
+| Scoring engine (Milestone 3) | Done | [docs/04_scoring_engine.md](docs/04_scoring_engine.md) |
+| Scoring API + dashboard (Milestone 3) | Planned | |
