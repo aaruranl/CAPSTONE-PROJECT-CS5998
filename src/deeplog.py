@@ -171,6 +171,33 @@ class DeepLog:
         starts = np.concatenate([[0], np.cumsum(lengths)[:-1]])
         return np.maximum.reduceat(ranks[inverse], starts)
 
+    @torch.no_grad()
+    def surprises(self, events, g: float, top_k: int = 3) -> list[dict]:
+        """Explain one group: every position whose real next event was NOT in the top-g guesses.
+
+        Returns, per surprising position, what really came ("END" if the group stopped)
+        and the model's top_k guesses (as event IDs, or "END").
+        """
+        events = list(events)
+        unique, inverse, _, _ = make_windows([self.vocab.encode(events)], self.cfg.window)
+        windows = torch.from_numpy(unique[inverse])
+        self.model.eval()
+        logits = self.model(windows[:, :-1])
+        logits[:, PAD] = -torch.inf
+        real = windows[:, -1]
+        ranks = (logits > logits.gather(1, real[:, None])).sum(1).numpy()
+        ranks[real.numpy() == UNK] = self.vocab.size
+        guesses = torch.argsort(logits, dim=1, descending=True)[:, :top_k].numpy()
+
+        def as_event(token: int):
+            return "END" if token == END else int(self.vocab.events[token - N_SPECIAL])
+
+        return [{"position": int(p),
+                 "actual": events[p] if p < len(events) else "END",
+                 "rank": int(ranks[p]),
+                 "expected": [as_event(t) for t in guesses[p] if t not in (PAD, UNK)]}
+                for p in np.flatnonzero(ranks >= g)]
+
     # --------------------------------------------------------------- save / load
     def save(self, path, threshold: float) -> None:
         torch.save({"config": asdict(self.cfg), "events": self.vocab.events,
