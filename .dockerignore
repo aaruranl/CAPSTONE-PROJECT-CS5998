@@ -1,0 +1,17 @@
+# Only what the image needs is sent to Docker (see Dockerfile). This keeps builds fast and
+# makes sure secrets (.env) and the big data folders never end up inside an image.
+.env
+.git
+.venv
+data
+models
+reports
+docs
+scripts
+tests
+notebooks
+**/__pycache__
+.pytest_cache
+.DS_Store
+.vscode
+.idea

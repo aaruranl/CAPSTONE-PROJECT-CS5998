@@ -1,22 +1,86 @@
-# The services of the live system (Milestone 3).
-# Step 3: an OPTIONAL local alert database, for working without the hosted one (set
-# DATABASE_URL in .env, see .env.example). Step 5 will add the API, the log feed and the dashboard.
+# The live system (Milestone 3, step 5): scoring API + dashboard, and the log feed on demand.
 #
-#   docker-compose up -d --wait db    # start PostgreSQL in the background (and wait until it is ready)
-#   docker-compose down               # stop it; the stored alerts stay in the "pgdata" volume
-#   docker-compose down -v            # stop it AND delete the stored alerts
+#   docker-compose up -d --build                          # build the image, start the API and the dashboard
+#   docker-compose run --rm replay --dataset bgl          # replay the BGL test period into the API
+#   docker-compose run --rm replay --dataset hdfs --speed 600
+#   docker-compose logs -f api                            # follow the API's log
+#   docker-compose down                                   # stop everything
 #
-# Connection string for .env:
-#   DATABASE_URL=postgresql://logs:logs@localhost:5440/logs
+#   API        http://localhost:8000/docs
+#   Dashboard  http://localhost:8501
+#
+# Before the first start: run scripts 01-06 (data, models, results) and put DATABASE_URL in .env
+# (see .env.example). Other ports: API_PORT=18000 DASHBOARD_PORT=18501 docker-compose up -d
+#
+# Without the hosted database, use the local one:
+#   DATABASE_URL=postgresql://logs:logs@db:5432/logs docker-compose --profile local-db up -d
+
+x-app: &app                      # shared settings of the three Python services
+  build: .
+  image: log-anomaly-detection:latest
+  environment:
+    DATABASE_URL: ${DATABASE_URL:-}   # from the shell, or else from .env; never stored in the image
+    API_URL: http://api:8000          # how the dashboard and the feed reach the API inside Docker
+  volumes:                            # made by scripts 01-06; read-only
+    - ./models:/app/models:ro
+    - ./data/processed:/app/data/processed:ro
+    - ./reports/results:/app/reports/results:ro
+
 services:
-  db:
+  api:
+    <<: *app
+    command: ["uvicorn", "src.api:app", "--host", "0.0.0.0", "--port", "8000"]
+    ports:
+      - "${API_PORT:-8000}:8000"
+    depends_on:
+      db:                        # only when the local database is used (profile "local-db")
+        condition: service_healthy
+        required: false
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=3)"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+    restart: unless-stopped
+
+  dashboard:
+    <<: *app
+    command: ["streamlit", "run", "dashboard/app.py", "--server.port", "8501", "--server.address", "0.0.0.0"]
+    ports:
+      - "${DASHBOARD_PORT:-8501}:8501"
+    depends_on:
+      api:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8501/_stcore/health', timeout=3)"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+    restart: unless-stopped
+
+  replay:                        # the live log feed: started on demand with "docker-compose run"
+    <<: *app
+    profiles: ["replay"]
+    entrypoint: ["python", "-m", "src.replay"]
+    command: ["--dataset", "bgl"]
+    volumes:
+      - ./models:/app/models:ro
+      - ./data/processed:/app/data/processed:ro
+      - ./reports/results:/app/reports/results:ro
+      - ./data/raw:/app/data/raw:ro          # the raw log files it replays
+    depends_on:
+      api:
+        condition: service_healthy
+
+  db:                            # OPTIONAL local PostgreSQL (profile "local-db"); normally the hosted one is used
     image: postgres:17
+    profiles: ["local-db"]
     environment:
       POSTGRES_USER: logs
-      POSTGRES_PASSWORD: logs        # a demo password; a real deployment would use a secret
+      POSTGRES_PASSWORD: logs        # a demo password, only reachable on this computer
       POSTGRES_DB: logs
     ports:
-      - "5440:5432"                  # 5440 on this computer: not the usual 5432/5433, so it cannot clash with another PostgreSQL
+      - "127.0.0.1:5440:5432"        # 5440: not the usual 5432/5433, which another PostgreSQL may use
     volumes:
       - pgdata:/var/lib/postgresql/data
     healthcheck:
