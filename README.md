@@ -14,6 +14,14 @@ model is trained only on past logs and tested on future logs?**
 | Technique category | Machine learning and deep learning |
 | System context | End-to-end pipeline + comparative analysis, served as an API and dashboard |
 
+## System architecture
+
+![System architecture](reports/figures/00_architecture.png)
+
+Top: the offline pipeline that trains and evaluates the detectors. Bottom: the live system.
+The live API loads the frozen parser, models and thresholds made offline, so its decisions
+match the evaluated ones exactly. Editable source: [docs/architecture.svg](docs/architecture.svg).
+
 ## Datasets
 
 | Dataset | Source | Size | Group unit | Labels |
