@@ -190,7 +190,7 @@ with st.sidebar:
                            + f"{r['started_at']:%d %b %H:%M} UTC · {r['status'].get('lines', 0):,} lines")
     auto = st.toggle(f"Refresh every {REFRESH_SECONDS} s", value=True)
     st.caption(f"Alert store: {store_label()}")
-    st.caption(f"Scoring API: {'running' if api_running() else 'not reachable'} at {API_URL}")
+    st.caption(f"Scoring API: {'running' if api_running() else 'not reachable'} at `{API_URL}`")
     st.caption("● = a stream that is still receiving lines")
 
 st.header(SYSTEMS[dataset])

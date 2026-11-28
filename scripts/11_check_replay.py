@@ -15,8 +15,11 @@ It also measures how long after a BGL window ends its alert arrives (log time):
 
 Needs the PostgreSQL database named by DATABASE_URL (in .env, see .env.example).
 Usage:
-    python scripts/11_check_replay.py   # ~2 min -> reports/results/replay_check.json
+    python scripts/11_check_replay.py   # ~2.5 min -> reports/results/replay_check.json
+    # against the API running in Docker (step 5) instead of a local server:
+    python scripts/11_check_replay.py --api http://127.0.0.1:18000 --out replay_check_docker.json
 """
+import argparse
 import json
 import os
 import subprocess
@@ -39,8 +42,12 @@ from src.replay import replay  # noqa: E402
 from src.store import ResultStore, database_url  # noqa: E402
 
 DATABASE_URL = database_url() or sys.exit("DATABASE_URL is not set: copy .env.example to .env and fill it in")
+ap = argparse.ArgumentParser(description="End-to-end check: log feed -> API -> database vs the offline evaluation")
+ap.add_argument("--api", help="use this already running API (e.g. in Docker) instead of starting a local one")
+ap.add_argument("--out", default="replay_check.json", help="results file in reports/results/")
+args = ap.parse_args()
 PORT = 8077
-API = f"http://127.0.0.1:{PORT}"
+API = args.api or f"http://127.0.0.1:{PORT}"
 PACED = dict(speed=600, hours=6, max_wait=3600)  # 6 log hours at 600x = 36 real seconds, no fast-forward
 
 
@@ -61,8 +68,9 @@ try:
 except Exception as e:  # noqa: BLE001 - tell the user what to do instead of a long traceback
     sys.exit(f"Cannot reach the database {store.describe()} ({e.__class__.__name__}): check DATABASE_URL in .env")
 
-server = subprocess.Popen([sys.executable, "-m", "uvicorn", "src.api:app", "--port", str(PORT), "--log-level", "warning"],
-                          cwd=ROOT, env={**os.environ, "DATABASE_URL": DATABASE_URL})
+server = None if args.api else subprocess.Popen(
+    [sys.executable, "-m", "uvicorn", "src.api:app", "--port", str(PORT), "--log-level", "warning"],
+    cwd=ROOT, env={**os.environ, "DATABASE_URL": DATABASE_URL})
 try:
     for _ in range(60):  # wait until the API answers
         try:
@@ -72,9 +80,12 @@ try:
             time.sleep(0.5)
     else:
         sys.exit("The API did not start")
-    print(f"API running at {API}, storing in {health['database']}")
+    if health.get("database") is None:
+        sys.exit(f"The API at {API} stores nothing: it was started without DATABASE_URL")
+    print(f"API running at {API} ({'already running' if args.api else 'started here'}), storing in the database")
 
-    report = {"database": store.label()}  # no host or user name: this file is published
+    report = {"database": store.label(),  # no host or user name: this file is published
+              "api": "already running (" + API + ")" if args.api else "local uvicorn server started by this script"}
     for dataset in ("bgl", "hdfs"):
         detector = DEFAULT_DETECTOR[dataset]
         start = time.time()
@@ -137,9 +148,10 @@ try:
           f" | alert delay after the window ends: {describe(delay)} = at most "
           f"{report['bgl_paced_with_clock_signal']['max_real_seconds']} real seconds")
 finally:
-    server.terminate()
-    server.wait(timeout=30)
+    if server is not None:
+        server.terminate()
+        server.wait(timeout=30)
 
 RESULTS_DIR.mkdir(parents=True, exist_ok=True)
-(RESULTS_DIR / "replay_check.json").write_text(json.dumps(report, indent=2, default=str))
-print(f"\nSaved {RESULTS_DIR / 'replay_check.json'}")
+(RESULTS_DIR / args.out).write_text(json.dumps(report, indent=2, default=str))
+print(f"\nSaved {RESULTS_DIR / args.out}")
