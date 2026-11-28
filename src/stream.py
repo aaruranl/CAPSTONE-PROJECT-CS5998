@@ -1,5 +1,5 @@
 """
-Live scoring (Milestone 3, step 2): lines arrive a few at a time, and each group is
+Live scoring (step 5): lines arrive a few at a time, and each group is
 scored as soon as it is FINISHED.
 
   * BGL : a 5-minute window is finished when a line from a LATER window arrives.
@@ -24,7 +24,7 @@ finished even if no line arrives. The log feed (src/replay.py) sends it about on
 The open groups are kept in order of their last activity, so finding the finished ones
 only looks at the oldest group instead of all of them.
 
-The cold-start rule (Milestone 3, step 3): a monitor switched on in the middle of a running
+The cold-start rule (step 6): a monitor switched on in the middle of a running
 system sees groups without their beginning, and such half-groups look abnormal (99.4% of
 them were flagged in scripts/10_check_api.py). So a group is only JUDGED if monitoring
 began early enough that none of its events can have been missed:

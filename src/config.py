@@ -21,7 +21,7 @@ PROCESSED_DIR = DATA_DIR / "processed"  # everything our pipeline creates
 RANDOM_SEED = 42
 
 # ----------------------------------------------------------------------------
-# Train / validation / test proportions (from the Milestone 1 definition)
+# Train / validation / test proportions (from the project proposal)
 # ----------------------------------------------------------------------------
 TRAIN_RATIO = 0.70
 VAL_RATIO = 0.10

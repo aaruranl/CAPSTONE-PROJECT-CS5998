@@ -14,6 +14,9 @@ model is trained only on past logs and tested on future logs?**
 | Technique category | Machine learning and deep learning |
 | System context | End-to-end pipeline + comparative analysis, served as an API and dashboard |
 
+**Start here:** the [project guide](docs/00_project_guide.md) walks through the whole project in
+one place: the ideas, every part of the system, all results, and how to run it.
+
 ## System architecture
 
 ![System architecture](reports/figures/00_architecture.png)
@@ -73,7 +76,7 @@ match the evaluated ones exactly. Editable source: [docs/architecture.svg](docs/
 ├── .env.example              # template for .env: the database connection string (.env is never committed)
 ├── Dockerfile                # one image for the API, the dashboard and the log feed
 ├── docker-compose.yml        # the live system: API + dashboard (+ log feed, optional local PostgreSQL)
-├── docs/                     # explanation of each project step
+├── docs/                     # project guide (00) + one document per step (01-09)
 ├── reports/                  # figures, EDA statistics and model results
 ├── models/                   # trained models (generated, not committed)
 └── data/                     # raw/ and processed/ (generated, not committed)
@@ -125,10 +128,10 @@ python -m src.replay --dataset bgl     # the live log feed: replays the BGL test
 | Exploratory data analysis | Done | [docs/02_eda.md](docs/02_eda.md) |
 | Baselines (rules, Logistic Regression, Isolation Forest) | Done | [docs/03_models.md](docs/03_models.md) |
 | Improved model (DeepLog LSTM) | Done | [docs/03_models.md](docs/03_models.md) |
-| Scoring engine (Milestone 3) | Done | [docs/04_scoring_engine.md](docs/04_scoring_engine.md) |
-| Scoring API (Milestone 3) | Done | [docs/05_scoring_api.md](docs/05_scoring_api.md) |
-| Live log feed + alert store (Milestone 3) | Done | [docs/06_live_feed_and_store.md](docs/06_live_feed_and_store.md) |
-| Live dashboard (Milestone 3) | Done | [docs/07_dashboard.md](docs/07_dashboard.md) |
-| Whole system in Docker (Milestone 3) | Done | [docs/08_docker.md](docs/08_docker.md) |
-| False alarms per day + error analysis (Milestone 3) | Done | [docs/09_false_alarms_and_errors.md](docs/09_false_alarms_and_errors.md) |
-| Final report + reproducibility checklist (Milestone 3) | Planned | |
+| Scoring engine | Done | [docs/04_scoring_engine.md](docs/04_scoring_engine.md) |
+| Scoring API | Done | [docs/05_scoring_api.md](docs/05_scoring_api.md) |
+| Live log feed + alert store | Done | [docs/06_live_feed_and_store.md](docs/06_live_feed_and_store.md) |
+| Live dashboard | Done | [docs/07_dashboard.md](docs/07_dashboard.md) |
+| Whole system in Docker | Done | [docs/08_docker.md](docs/08_docker.md) |
+| False alarms per day + error analysis | Done | [docs/09_false_alarms_and_errors.md](docs/09_false_alarms_and_errors.md) |
+| Final report + reproducibility checklist | Planned | |

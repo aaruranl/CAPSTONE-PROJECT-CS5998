@@ -1,5 +1,5 @@
 """
-Milestone 3, step 2 - the scoring API: the scoring engine behind a web address.
+Step 5 - the scoring API: the scoring engine behind a web address.
 
 Run it:
     uvicorn src.api:app            # then open http://127.0.0.1:8000/docs to try every endpoint
@@ -17,7 +17,7 @@ Models and the parser are loaded on first use and then kept in memory. Every
 (dataset, detector) pair has its own engine and lock, so simultaneous requests
 cannot corrupt each other's state.
 
-Alert store (Milestone 3, step 3): if DATABASE_URL is set (in the environment or in the
+Alert store (step 6): if DATABASE_URL is set (in the environment or in the
 .env file), every group judged in LIVE mode is saved in that database (src/store.py), with
 the stream's status. The connection is checked at start-up and reported in the log.
 Without it the API works the same, it just does not store anything. If the database

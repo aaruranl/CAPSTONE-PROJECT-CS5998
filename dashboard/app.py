@@ -1,5 +1,5 @@
 """
-Milestone 3, step 4 - the live dashboard (Streamlit).
+Step 7 - the live dashboard (Streamlit).
 
     streamlit run dashboard/app.py        # then open http://localhost:8501
 

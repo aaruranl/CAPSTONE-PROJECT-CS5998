@@ -1,5 +1,5 @@
 """
-Milestone 3, step 1 - check the scoring engine against the offline results.
+Step 4 - check the scoring engine against the offline results.
 
 Takes the RAW log lines of the whole time-split test period, runs them through the
 scoring engine (src/engine.py) and checks that it reproduces, for every test group:

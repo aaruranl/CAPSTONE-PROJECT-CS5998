@@ -227,7 +227,7 @@ re-create them with the scripts):
 | `lines.parquet` | log line | `timestamp`, `event_id`, `level`, `component` (+ BGL: `is_alert`, `alert_type`, `node`) |
 | `templates.csv` | event template | `event_id`, `template`, `occurrences`, `occurrences_learning_period` |
 | `summary.json` | dataset | all counts and split statistics shown above |
-| `parser.pkl` | – | the frozen Drain parser, saved for the scoring engine (added in Milestone 3, docs/04_scoring_engine.md) |
+| `parser.pkl` | – | the frozen Drain parser, saved for the scoring engine (added in step 4, docs/04_scoring_engine.md) |
 
 *Parquet* is a compressed, column-based file format: much smaller and faster
 to load than CSV, and it keeps data types (dates stay dates, lists stay lists).
@@ -238,7 +238,7 @@ to load than CSV, and it keeps data types (dates stay dates, lists stay lists).
 |---|---|---|
 | Parse with Drain | Most-used parser, no labels needed, fast, benchmarked on these datasets | Loghub's pre-parsed files: quicker, but parsed with *all* data (leakage) and no control over the process |
 | Mask IDs/IPs/numbers before Drain | Fewer false templates; recommended by the Loghub benchmark | No masking: more noisy templates |
-| Parser learns only before the cut-off, then frozen | Prevents test data from shaping the parser (Milestone 1 risk) | Parse everything at once: common in papers, but optimistic |
+| Parser learns only before the cut-off, then frozen | Prevents test data from shaping the parser (a risk named in the project proposal) | Parse everything at once: common in papers, but optimistic |
 | Same parser for both split experiments | Only the split differs, so the comparison is controlled | Separate parser per experiment |
 | Unseen messages → event 0 | Mirrors real deployment; makes drift measurable | Drop them: would hide the problem |
 | HDFS group = block | Natural session; labels exist per block | — |

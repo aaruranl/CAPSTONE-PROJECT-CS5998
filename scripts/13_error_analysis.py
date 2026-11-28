@@ -1,5 +1,5 @@
 """
-Milestone 3, step 6 (part 2) - error analysis of the two detectors the live system serves
+Step 9 (part 2) - error analysis of the two detectors the live system serves
 (time split, test set): what exactly are their false alarms and missed anomalies?
 
   HDFS, Logistic Regression: each error's event-count PATTERN (what the model sees) is looked

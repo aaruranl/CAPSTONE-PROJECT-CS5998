@@ -1,5 +1,5 @@
 """
-The numbers behind the dashboard (Milestone 3, step 4), kept apart from the page layout
+The numbers behind the dashboard (step 7), kept apart from the page layout
 (dashboard/app.py) so that they can be tested.
 
 Almost everything comes from the alert store: what the live system decided. The only
@@ -123,7 +123,7 @@ def unseen_examples(results: list[dict], limit: int = 10) -> list[str]:
 
 
 def model_results(dataset: str) -> pd.DataFrame:
-    """Test F1 of every model, random vs time split (the research question), from step 3 of Milestone 2."""
+    """Test F1 of every model, random vs time split (the research question), from step 3."""
     r = pd.read_csv(RESULTS_DIR / "results.csv")
     r = r[r["dataset"] == dataset].copy()
     r["model_name"] = r["model"].map(MODEL_NAMES).fillna(r["model"])

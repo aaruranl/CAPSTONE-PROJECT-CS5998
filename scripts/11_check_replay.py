@@ -1,11 +1,11 @@
 """
-Milestone 3, step 3 - end-to-end check of the live system: log feed -> API -> PostgreSQL.
+Step 6 - end-to-end check of the live system: log feed -> API -> PostgreSQL.
 
 Unlike scripts/10 (everything inside one Python process), this runs the real pieces:
   1. the API as a real web server (uvicorn), with DATABASE_URL pointing to PostgreSQL;
   2. the log feed (src/replay.py) replaying the time-split test period, as fast as possible;
 then reads the judged groups back FROM THE DATABASE and compares them with the
-offline evaluation (Milestone 2).
+offline evaluation (step 3).
 So what the dashboard will show is exactly what was evaluated.
 
 It also measures how long after a BGL window ends its alert arrives (log time):
@@ -16,7 +16,7 @@ It also measures how long after a BGL window ends its alert arrives (log time):
 Needs the PostgreSQL database named by DATABASE_URL (in .env, see .env.example).
 Usage:
     python scripts/11_check_replay.py   # ~2.5 min -> reports/results/replay_check.json
-    # against the API running in Docker (step 5) instead of a local server:
+    # against the API running in Docker (step 8) instead of a local server:
     python scripts/11_check_replay.py --api http://127.0.0.1:18000 --out replay_check_docker.json
 """
 import argparse

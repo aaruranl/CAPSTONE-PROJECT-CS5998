@@ -1,5 +1,5 @@
 """
-Operational measures (Milestone 3, step 6): what a detector means for the people who have
+Operational measures (step 9): what a detector means for the people who have
 to read its alerts. F1 says how good the decisions are; these say how much WORK they cause.
 
   * false alarms per day       false alarms / length of the period they come from

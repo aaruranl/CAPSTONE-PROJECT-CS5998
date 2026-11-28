@@ -1,10 +1,10 @@
-# Milestone 3, step 3 – Live log feed and alert store
+# Step 6 – Live log feed and alert store
 
 **Goal of this step:** make the system run like a real monitor.
 
 - A **log feed** sends log lines to the API as if they were being written right now.
 - The API judges each group when it is finished.
-- **Every result is saved in a PostgreSQL database**, hosted on Neon, where the dashboard (step 4) will read it.
+- **Every result is saved in a PostgreSQL database**, hosted on Neon, where the dashboard (step 7) will read it.
 
 Running it live exposed **three problems**, which were measured and fixed:
 
@@ -17,7 +17,7 @@ Code:
 - [`src/store.py`](../src/store.py): the alert store.
 - [`src/stream.py`](../src/stream.py): live scoring, now with the cold-start rule and the clock signal.
 - [`.env.example`](../.env.example): where the database connection string goes (in `.env`, never committed).
-- [`docker-compose.yml`](../docker-compose.yml): an optional local database (and, since step 5, the whole system; docs/08).
+- [`docker-compose.yml`](../docker-compose.yml): an optional local database (and, since step 8, the whole system; docs/08).
 - Checks: [`scripts/10_check_api.py`](../scripts/10_check_api.py) and [`scripts/11_check_replay.py`](../scripts/11_check_replay.py).
 - Tests: [`tests/test_replay.py`](../tests/test_replay.py), [`tests/test_store.py`](../tests/test_store.py) and [`tests/test_api.py`](../tests/test_api.py).
 
@@ -34,7 +34,7 @@ python scripts/11_check_replay.py                    # ~2.5 min -> reports/resul
 ## 1. The pieces
 
 ```
-raw log file ──> log feed ──> scoring API ──> PostgreSQL (Neon) ──> dashboard (step 4)
+raw log file ──> log feed ──> scoring API ──> PostgreSQL (Neon) ──> dashboard (step 7)
                (replay.py)   (api.py, stream.py)     (store.py)
 ```
 
@@ -62,7 +62,7 @@ word in a dictionary: about 2 ms instead of reading 9 million lines.
 
 ## 2. Problem 1: the cold start (fixed)
 
-**The problem (found in step 2):** a monitor switched on in the middle of a running system sees
+**The problem (found in step 5):** a monitor switched on in the middle of a running system sees
 groups **without their beginning**. An HDFS block whose first events came before the switch-on
 arrives as a "delete-only" piece, and that looks broken.
 
@@ -74,7 +74,7 @@ its events came before monitoring began (`watch_from`):
 - **HDFS:** the block's first event came at least **13 hours** after `watch_from`. Why is that
   enough? Any earlier event of the same block would have been within 13 h before it, so after
   `watch_from`, and we would have seen it. An event more than 13 h earlier would have ended the
-  block anyway: by the live rule of step 2, that is a separate, finished piece.
+  block anyway: by the live rule of step 5, that is a separate, finished piece.
 
 Groups that fail the rule are still **followed**, so their late events cannot start a fake "new" group. When
 they finish, they are **counted** (`not_judged_started_before_watching`), not scored.
@@ -106,7 +106,7 @@ be cut (docs/05 §3).
 
 ## 3. Problem 2: results depended on the batch size (fixed)
 
-In step 2, the "is a group finished?" check ran **once per request**. Take an HDFS block that is
+In step 5, the "is a group finished?" check ran **once per request**. Take an HDFS block that is
 silent for more than 13 h and then gets one more event. If that event arrived in the **same request** as
 the line that ended the 13 hours, it rejoined the block. If it arrived in a later request, it
 started a new piece. So the result could depend on how the lines were cut into requests. One
@@ -167,7 +167,7 @@ So a window is judged **at most about one real second after it ends**, whatever 
 - each save is all-or-nothing;
 - the results survive a restart of the API.
 
-**Why PostgreSQL:** it was named in Milestone 1. It's a standard, free, production-grade
+**Why PostgreSQL:** it was named in the project proposal. It's a standard, free, production-grade
 database.
 
 **Why a hosted database (Neon):** Neon runs PostgreSQL in the cloud (here PostgreSQL 18.7, in a
@@ -205,7 +205,7 @@ deployment.
 | Without `DATABASE_URL`, nothing is stored | The API still runs without a database (tests, `scripts/10`) |
 
 **Look inside it yourself:** in the Neon console's SQL editor (database `capstone`), or from
-this computer:
+a terminal:
 
 ```bash
 psql "$(grep ^DATABASE_URL= .env | cut -d= -f2-)" -c \
@@ -312,7 +312,7 @@ of its own lines was still on its way. The line would then start a fake second w
 
 **Why a database, and why PostgreSQL?** The dashboard needs to query the history, several programs
 use it at the same time, saves must be all-or-nothing, and results must survive restarts.
-PostgreSQL was named in Milestone 1. SQLAlchemy lets the tests use SQLite with the same code.
+PostgreSQL was named in the project proposal. SQLAlchemy lets the tests use SQLite with the same code.
 
 **Why hosted, and how do you protect the password?** A hosted database (Neon) can be reached by the
 dashboard from anywhere and doesn't depend on this laptop. The connection string lives only in

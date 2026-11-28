@@ -38,7 +38,7 @@ def harmless_fatal_events(train_lines: pd.DataFrame, min_lines: int = 20) -> set
     TRAINING but never part of a real alert, e.g. "ciod: Error loading <*> invalid or missing
     program image" (a user's job failed to start, not the machine).
 
-    Found in the error analysis (Milestone 3, step 6). Never-seen messages (event 0) are
+    Found in the error analysis (step 9). Never-seen messages (event 0) are
     never on the list: what is unknown cannot be known to be harmless.
     """
     fatal = train_lines[train_lines["level"].isin(FATAL_LEVELS) & (train_lines["event_id"] != 0)]

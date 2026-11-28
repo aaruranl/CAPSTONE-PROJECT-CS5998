@@ -1,6 +1,6 @@
 # Step 3 – Baselines and improved method (DeepLog)
 
-**Goal of this step:** train the models promised in Milestone 1 and answer the core
+**Goal of this step:** train the models promised in the project proposal and answer the core
 research question: *do the near-perfect results reported in papers still hold when a
 model is trained on past logs and tested on future logs?*
 

@@ -1,5 +1,5 @@
 """
-Live log feed (Milestone 3, step 3): replays a raw log file into the API, as if the
+Live log feed (step 6): replays a raw log file into the API, as if the
 system were running right now. It plays the role of a log COLLECTOR: a small program
 that reads new log lines and sends them to the detector.
 

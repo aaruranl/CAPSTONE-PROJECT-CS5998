@@ -1,5 +1,5 @@
 """
-The two baseline models promised in Milestone 1. Both read event-count vectors
+The two baseline models promised in the project proposal. Both read event-count vectors
 (src/features.py) and ignore the order of events.
 
 * Logistic Regression - SUPERVISED: learns a weight per event from labelled

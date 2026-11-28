@@ -1,4 +1,4 @@
-# The live system (Milestone 3, step 5): scoring API + dashboard, and the log feed on demand.
+# The live system (step 8): scoring API + dashboard, and the log feed on demand.
 #
 #   docker-compose up -d --build                          # build the image, start the API and the dashboard
 #   docker-compose run --rm replay --dataset bgl          # replay the BGL test period into the API

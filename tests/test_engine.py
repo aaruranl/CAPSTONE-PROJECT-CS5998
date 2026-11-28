@@ -1,4 +1,4 @@
-"""Tests for the scoring engine (Milestone 3, step 1) on tiny hand-made inputs."""
+"""Tests for the scoring engine (step 4) on tiny hand-made inputs."""
 import numpy as np
 import pytest
 

@@ -1,4 +1,4 @@
-# Milestone 3, step 5 – The whole system in Docker
+# Step 8 – The whole system in Docker
 
 **Goal of this step:** start the live system with **one command**, the same way on any computer that
 has Docker. No Python setup and no "it works on my machine".
@@ -22,8 +22,8 @@ docker-compose down                              # stop everything
 
 If these ports are taken: `API_PORT=18000 DASHBOARD_PORT=18501 docker-compose up -d`.
 
-On this Mac, Compose is the separate `docker-compose` command. With Docker Desktop's plugin it is
-`docker compose` (with a space); everything else is the same.
+Older Docker installations use the separate `docker-compose` command, as shown here. With the newer
+Compose plugin it is `docker compose` (with a space); everything else is the same.
 
 ---
 
@@ -36,7 +36,7 @@ On this Mac, Compose is the separate `docker-compose` command. With Docker Deskt
 - **Docker Compose** starts several containers together from one file (`docker-compose.yml`) and
   gives them a private network where they find each other by name (`http://api:8000`).
 
-**Why it was promised in Milestone 1:** the system then runs the same everywhere, with the same
+**Why it was promised in the project proposal:** the system then runs the same everywhere, with the same
 Python and library versions as the evaluation, on a laptop, a server or in the cloud.
 
 ---

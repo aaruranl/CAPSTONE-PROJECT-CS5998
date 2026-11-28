@@ -1,7 +1,7 @@
-# Milestone 3, step 2 – Scoring API
+# Step 5 – Scoring API
 
-**Goal of this step:** put the scoring engine (step 1) behind a **web address**, so that other
-programs, such as the live log feed (step 3) and the dashboard (step 4), can send it log lines and
+**Goal of this step:** put the scoring engine (step 4) behind a **web address**, so that other
+programs, such as the live log feed (step 6) and the dashboard (step 7), can send it log lines and
 get alerts back. It also decides **when a group is finished** in a live stream. That turned out to
 be the most interesting question of this step.
 
@@ -32,7 +32,7 @@ An **API** (Application Programming Interface) is a **service window** for progr
 - Each address is an **endpoint**. `GET` endpoints only read information; `POST` endpoints send
   data to be processed.
 
-**Why FastAPI** (named in Milestone 1):
+**Why FastAPI** (named in the project proposal):
 - It's Python, so it uses the scoring engine directly.
 - It **checks every request automatically** (a wrong dataset name or a missing field is rejected
   with a clear error).
@@ -48,9 +48,9 @@ An **API** (Application Programming Interface) is a **service window** for progr
 | `GET /health` | – | Is the service running? Which models are loaded? Live stream status |
 | `GET /detectors` | – | Available detectors per dataset, the default, and each one's test F1 on the time split |
 | `POST /score` | **batch** | The lines sent are complete (e.g. a whole log file). Scores all their groups now |
-| `POST /ingest` | **live** | Lines arrive a few at a time. The API keeps unfinished groups in memory and returns those that **just finished**. It can also carry `now`, the current time (added in Milestone 3 step 3) |
+| `POST /ingest` | **live** | Lines arrive a few at a time. The API keeps unfinished groups in memory and returns those that **just finished**. It can also carry `now`, the current time (added in step 6) |
 | `POST /flush` | live | End of the stream: scores every group that is still open |
-| `POST /reset` | live | Starts a new stream (e.g. to restart a demo), optionally saying from when it watches (added in Milestone 3 step 3) |
+| `POST /reset` | live | Starts a new stream (e.g. to restart a demo), optionally saying from when it watches (added in step 6) |
 
 **A real request and response** (one BGL line with level FATAL):
 
@@ -144,7 +144,7 @@ is a property of how HDFS works, not of the model. Possible future work:
 
 All raw lines from the start of the time-split test period were sent to `POST /ingest` in batches of
 10,000 lines (as a live feed would), followed by `POST /flush`. The real models were used, with the
-default detectors. Every test group's live alert was then compared with the offline evaluation (Milestone 2)
+default detectors. Every test group's live alert was then compared with the offline evaluation (step 3)
 (mode A of `scripts/10_check_api.py`; mode B, added in the next step, is in [docs/06](06_live_feed_and_store.md)):
 
 | | HDFS (Logistic Regression) | BGL (FATAL rule) |
@@ -161,7 +161,7 @@ default detectors. Every test group's live alert was then compared with the offl
   can take hours, and added a clock signal; see [docs/06](06_live_feed_and_store.md) §4.)
 - **HDFS finished nothing during the stream.** That's expected: the test period lasts only
   **3.6 hours**, which is less than the 13-hour quiet time. All its alerts arrived at the flush.
-- **The chain is now proven end to end:** preprocessing → evaluated models → engine (step 1) →
+- **The chain is now proven end to end:** preprocessing → evaluated models → engine (step 4) →
   API (this step), with zero differences.
 
 Numbers: [`reports/results/api_check.json`](../reports/results/api_check.json).

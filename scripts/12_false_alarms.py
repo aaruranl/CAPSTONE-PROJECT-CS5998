@@ -1,5 +1,5 @@
 """
-Milestone 3, step 6 (part 1) - false alarms per day, and alert budgets.
+Step 9 (part 1) - false alarms per day, and alert budgets.
 
 A. False alarms per day for every model, dataset and split (test set). For the time split
    also: the notifications an operator would get if alerts were bundled per 10 minutes.

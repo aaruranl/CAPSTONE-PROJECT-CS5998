@@ -1,11 +1,11 @@
 """
-Milestone 3, steps 2-3 - check the API in live mode against the offline results.
+Steps 5-6 - check the API in live mode against the offline results.
 
 Replays raw log lines through POST /reset, /ingest (batches of 10,000, as a live feed
 would) and /flush, with the real models and the default detectors, in two ways:
 
   A. "switched on at the test start, no cold-start rule": the stream begins exactly at
-     the start of the test period and every finished group is judged (step 2).
+     the start of the test period and every finished group is judged (step 5).
      -> shows the COLD-START problem: groups whose beginning was never seen.
   B. "back-fill + cold-start rule": the stream begins 13 h earlier for HDFS (as the log
      feed src/replay.py does) and groups that may have started before watching are not

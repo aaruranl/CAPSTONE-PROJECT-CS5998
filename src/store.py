@@ -1,6 +1,6 @@
 """
-Alert store (Milestone 3, step 3): every group the live system judges is saved in a
-database, so that the dashboard (step 4) can show alerts, history and drift, and nothing
+Alert store (step 6): every group the live system judges is saved in a
+database, so that the dashboard (step 7) can show alerts, history and drift, and nothing
 is lost when the API restarts.
 
     deployment: PostgreSQL, a hosted database named by DATABASE_URL in the .env file

@@ -1,8 +1,8 @@
-# Milestone 3, step 6 – False alarms per day and error analysis
+# Step 9 – False alarms per day and error analysis
 
 **Goal of this step:** look at the detectors the way the **people on call** would.
 
-- How much work do the alerts cause per day? This is the false-alarms-per-day measure promised in Milestone 1.
+- How much work do the alerts cause per day? This is the false-alarms-per-day measure promised in the project proposal.
 - Does a false-alarm limit set on the past hold in the future?
 - What exactly are the errors of the two detectors the live system serves, and can they be fixed?
 

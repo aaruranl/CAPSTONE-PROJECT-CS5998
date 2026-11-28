@@ -1,5 +1,5 @@
 """
-Scoring engine (Milestone 3, step 1): raw log lines in -> one scored result per group out.
+Scoring engine (step 4): raw log lines in -> one scored result per group out.
 
     raw lines -> read the header -> mask + FROZEN parser -> group -> detector -> score 0-1, label, reasons
                  (hdfs.py, bgl.py)   (log_parser.py)               (models from step 3)

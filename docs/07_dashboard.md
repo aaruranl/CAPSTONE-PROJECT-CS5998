@@ -1,4 +1,4 @@
-# Milestone 3, step 4 – Live dashboard
+# Step 7 – Live dashboard
 
 **Goal of this step:** a web page where a person can **watch the live system** and **judge whether to trust it**:
 - what it flags, and why;
@@ -6,7 +6,7 @@
 - how much the logs have drifted;
 - how the models compare.
 
-It reads the alert store (PostgreSQL on Neon) that the scoring API fills (step 3).
+It reads the alert store (PostgreSQL on Neon) that the scoring API fills (step 6).
 
 Code:
 - [`dashboard/app.py`](../dashboard/app.py): the page.
@@ -29,7 +29,7 @@ python -m src.replay --dataset bgl      # the live log feed
 `st.altair_chart` call draws one element. When something changes (you click, or the timer fires),
 the script runs again and the page updates.
 
-It was named in Milestone 1. It's Python, so it reuses the project's code directly, with no separate
+It was named in the project proposal. It's Python, so it reuses the project's code directly, with no separate
 web front end to build. Charts are drawn with **Altair**, a Python library for interactive charts
 (hover tooltips).
 
@@ -69,9 +69,9 @@ The true labels from the dataset are joined here **to grade the live system**. I
 as in real use. The tab shows:
 - real anomalies caught, false alarms and missed anomalies;
 - precision, recall and F1;
-- **false alarms per day** (promised in Milestone 1);
+- **false alarms per day** (promised in the project proposal);
 - alerts over time split into real anomalies (orange) and false alarms (blue);
-- the latest false alarms with their reasons, which is the starting point for the error analysis (step 6).
+- the latest false alarms with their reasons, which is the starting point for the error analysis (step 9).
 
 An HDFS block that was cut in two by the quiet time counts once: as flagged if any of its pieces was.
 
@@ -126,7 +126,7 @@ Without them the numbers are exactly the offline ones.
 **False alarms per day changes the picture.** HDFS has the better F1 (0.97 vs 0.79), but it
 would raise about **600 false alarms a day**, against **2 a day** on BGL. HDFS is a busy system:
 115,000 blocks in 3.6 hours, so even a 0.08% false-alarm rate (89 of about 113,000 normal blocks) is hundreds a day. A score like F1
-hides this, which is why Milestone 1 promised this metric. Step 6 analyses it properly.
+hides this, which is why the project proposal promised this metric. Step 9 analyses it properly.
 
 **Median time to alert** depends on how the stream was replayed:
 - these runs were replayed as fast as possible, without a clock signal, so a BGL window waited for

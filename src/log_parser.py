@@ -12,7 +12,7 @@ Two stages:
                 the remaining messages by similarity and learns which tokens
                 are constant (part of the template) and which vary (<*>).
 
-Leakage rule (from the Milestone 1 risk table): the parser may only LEARN
+Leakage rule (from the risk table in the project proposal): the parser may only LEARN
 templates from training-period logs. After `freeze()` it can only MATCH new
 messages to templates it already knows. Messages that match nothing become
 event 0 ("<UNSEEN>"), which is exactly what a deployed system would face.

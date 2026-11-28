@@ -1,4 +1,4 @@
-# Milestone 3, step 1 – Scoring engine
+# Step 4 – Scoring engine
 
 **Goal of this step:** build the part of the live system that does the actual data science.
 It takes **raw log lines**, and for every group (HDFS block / BGL 5-minute window) returns:
@@ -7,7 +7,7 @@ It takes **raw log lines**, and for every group (HDFS block / BGL 5-minute windo
 - a **normal / abnormal label**,
 - the **log events that caused the alert**.
 
-These are the outputs promised in Milestone 1 ("Expected outputs: anomaly alerts"). The API and
+These are the outputs promised in the project proposal ("Expected outputs: anomaly alerts"). The API and
 dashboard built in the next steps only pass lines into this engine and display what comes out.
 
 Code:

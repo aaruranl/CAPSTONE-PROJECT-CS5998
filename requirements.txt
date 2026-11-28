@@ -12,17 +12,17 @@ tqdm==4.70.1
 scikit-learn==1.9.1
 torch==2.15.0
 
-# Milestone 3 - scoring API
+# Step 5 - scoring API
 fastapi==0.165.0
 uvicorn==0.54.0
 httpx==0.29.0    # used by the API tests (FastAPI TestClient)
 
-# Milestone 3 - alert store (PostgreSQL) and live log feed
+# Step 6 - alert store (PostgreSQL) and live log feed
 sqlalchemy==2.1.9
 psycopg[binary]==3.3.9
 python-dotenv==1.2.4   # reads DATABASE_URL from the .env file
 
-# Milestone 3 - dashboard
+# Step 7 - dashboard
 streamlit==1.67.0
 altair==6.3.0
 

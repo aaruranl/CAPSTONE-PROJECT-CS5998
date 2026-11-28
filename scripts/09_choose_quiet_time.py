@@ -1,5 +1,5 @@
 """
-Milestone 3, step 2 - when is a live HDFS block "finished"? (the quiet time)
+Step 5 - when is a live HDFS block "finished"? (the quiet time)
 
 An HDFS block has no "end" message, so the live system declares it finished after
 Q hours of silence. Too short: a normal block is cut in two, and the pieces look
