@@ -21,6 +21,7 @@ Tables
 import os
 from datetime import datetime, timezone
 
+import pandas as pd
 from dotenv import load_dotenv
 from sqlalchemy import (JSON, Boolean, Column, DateTime, Float, Index, Integer, MetaData, String,
                         Table, create_engine, insert, select, update)
@@ -148,6 +149,15 @@ class ResultStore:
             query = query.where(runs.c.dataset == dataset)
         with self.db.connect() as conn:
             return [dict(row._mapping) for row in conn.execute(query)]
+
+    def frame(self, run_id: str) -> pd.DataFrame:
+        """The small columns of every judged group of one stream (no reasons), for charts."""
+        self.connect()
+        c = group_results.c
+        query = select(c.group_id, c.first_seen, c.last_seen, c.judged_at, c.n_events, c.n_unseen_events,
+                       c.score, c.is_anomaly).where(c.run_id == run_id)
+        with self.db.connect() as conn:
+            return pd.read_sql(query, conn)
 
     def results(self, run_id: str, only_alerts: bool = False, limit: int | None = None) -> list[dict]:
         """The judged groups of one stream, most recently finished first."""
