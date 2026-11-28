@@ -31,7 +31,9 @@ model is trained only on past logs and tested on future logs?**
 │   ├── 04_baselines.py       # rules, Logistic Regression, Isolation Forest
 │   ├── 05_deeplog.py         # DeepLog LSTM (improved method)
 │   ├── 06_compare.py         # random vs time split comparison → tables + figure
-│   └── 08_check_engine.py    # proves the scoring engine reproduces the evaluated results
+│   ├── 08_check_engine.py    # proves the scoring engine reproduces the evaluated results
+│   ├── 09_choose_quiet_time.py  # data behind the live HDFS rule (when is a block finished?)
+│   └── 10_check_api.py       # replays the test period through the API, compares with step 3
 ├── src/
 │   ├── config.py             # all paths, seeds, ratios and parser settings
 │   ├── log_parser.py         # masking + Drain parser with a learn/freeze life-cycle
@@ -46,6 +48,8 @@ model is trained only on past logs and tested on future logs?**
 │   ├── metrics.py            # thresholds, precision/recall/F1, confidence intervals
 │   ├── experiment.py         # shared train → validate → test procedure
 │   ├── engine.py             # scoring engine: raw lines → score 0-1, label, reasons
+│   ├── stream.py             # live scoring: score each group when it is finished
+│   ├── api.py                # FastAPI scoring service (/score, /ingest, /flush, ...)
 │   ├── plot_style.py         # one shared chart style and colour scheme
 │   └── common.py             # shared helpers
 ├── tests/                    # unit tests (python -m pytest -q)
@@ -68,6 +72,9 @@ python scripts/04_baselines.py         # ~15 s, rules + Logistic Regression + Is
 python scripts/05_deeplog.py           # ~3 min on CPU, DeepLog
 python scripts/06_compare.py           # ~3 s, writes reports/results/ and the comparison figure
 python scripts/08_check_engine.py      # ~35 s, scoring engine vs offline results
+python scripts/09_choose_quiet_time.py # ~1.5 min, HDFS live rule from training + validation data
+python scripts/10_check_api.py        # ~30 s, live API vs offline results
+uvicorn src.api:app                   # start the API -> http://127.0.0.1:8000/docs
 python -m pytest -q                    # unit tests
 ```
 
@@ -80,4 +87,5 @@ python -m pytest -q                    # unit tests
 | Baselines (rules, Logistic Regression, Isolation Forest) | Done | [docs/03_models.md](docs/03_models.md) |
 | Improved model (DeepLog LSTM) | Done | [docs/03_models.md](docs/03_models.md) |
 | Scoring engine (Milestone 3) | Done | [docs/04_scoring_engine.md](docs/04_scoring_engine.md) |
-| Scoring API + dashboard (Milestone 3) | Planned | |
+| Scoring API (Milestone 3) | Done | [docs/05_scoring_api.md](docs/05_scoring_api.md) |
+| Live feed, alert store, dashboard, Docker (Milestone 3) | Planned | |

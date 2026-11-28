@@ -1,0 +1,56 @@
+{
+  "hdfs": {
+    "detector": "logreg",
+    "raw_lines": 2163435,
+    "requests": 217,
+    "lines_per_second_through_api": 127473,
+    "groups_finished_before_flush": 0,
+    "test_groups": 115012,
+    "test_groups_scored_live": 115012,
+    "test_groups_cut_in_two": 0,
+    "alert_mismatches_vs_offline": 0,
+    "alerts": 1747,
+    "partial_groups_from_before_the_replay": 65430,
+    "alerts_on_partial_groups": 65041,
+    "final_status": {
+      "dataset": "hdfs",
+      "detector": "logreg",
+      "log_time": "2008-11-11 11:16:28",
+      "open_groups": 0,
+      "finished_groups": 180442,
+      "alerts": 66788,
+      "groups_reopened": 0,
+      "lines": 2163435,
+      "malformed": 0,
+      "without_group": 0,
+      "unseen_messages": 0
+    }
+  },
+  "bgl": {
+    "detector": "rule_fatal",
+    "raw_lines": 628954,
+    "requests": 63,
+    "lines_per_second_through_api": 152584,
+    "groups_finished_before_flush": 2898,
+    "test_groups": 2899,
+    "test_groups_scored_live": 2899,
+    "test_groups_cut_in_two": 0,
+    "alert_mismatches_vs_offline": 0,
+    "alerts": 343,
+    "partial_groups_from_before_the_replay": 0,
+    "alerts_on_partial_groups": 0,
+    "final_status": {
+      "dataset": "bgl",
+      "detector": "rule_fatal",
+      "log_time": "2006-01-04 16:00:05",
+      "open_groups": 0,
+      "finished_groups": 2899,
+      "alerts": 343,
+      "groups_reopened": 0,
+      "lines": 628954,
+      "malformed": 0,
+      "without_group": 0,
+      "unseen_messages": 423650
+    }
+  }
+}
