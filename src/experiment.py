@@ -6,7 +6,8 @@ for every model (so the comparison is fair).
 import numpy as np
 import pandas as pd
 
-from src.config import PROCESSED_DIR, PROJECT_ROOT
+from src.config import BGL_WINDOW_MINUTES, PROCESSED_DIR, PROJECT_ROOT
+from src.config import DATASETS as RAW_FILES  # dataset -> raw log file paths
 from src.metrics import best_f1_threshold, confusion, evaluate, f1_score
 
 DATASETS = ("hdfs", "bgl")
@@ -56,3 +57,17 @@ def record(dataset, split, model, kind, parts, val_scores, test_scores, seconds,
         "n_test": len(y_test), "n_test_abnormal": int(y_test.sum()),
         "train_seconds": seconds,
     }
+
+
+def test_period_lines(dataset: str, seqs: pd.DataFrame) -> list[str]:
+    """All raw lines that can belong to a test group (they all come after the test period starts)."""
+    test = seqs[seqs["split_time"] == "test"]
+    path = RAW_FILES[dataset.upper()]["log_file"]
+    with open(path, encoding="utf-8", errors="replace") as f:
+        if dataset == "hdfs":  # groups are blocks; every line of a test block is at/after its first line
+            start = int(test["first_line"].min())
+            return [line for i, line in enumerate(f) if i >= start]
+        # BGL: keep lines whose 5-minute window is a test window
+        windows = set(test["window_id"].astype(str))
+        return [line for line in f if (p := line.split(maxsplit=2))[1:2] and p[1].isdigit()
+                and str(int(p[1]) // (BGL_WINDOW_MINUTES * 60)) in windows]

@@ -200,26 +200,39 @@ class ScoringEngine:
             return "a never-seen message"
         return f'E{event} "{self.templates.get(int(event), "?")[:80]}"'
 
+    @staticmethod
+    def new_stats() -> dict:
+        return {"lines": 0, "malformed": 0, "without_group": 0, "unseen_messages": 0}
+
+    def add_line(self, groups: dict[str, Group], line: str, stats: dict):
+        """Read and parse ONE raw line (frozen parser, never learns) and add it to its group(s).
+
+        Returns (timestamp, group IDs) or None for a malformed line. Used both for a whole
+        batch (group_lines) and for live streams (src/stream.py), so both behave identically.
+        """
+        stats["lines"] += 1
+        parsed = self.read(line)
+        if parsed is None:
+            stats["malformed"] += 1
+            return None
+        ts, level, content, group_ids = parsed
+        event_id = self.parser.match(content)
+        stats["unseen_messages"] += event_id == UNSEEN_EVENT_ID
+        if not group_ids:
+            stats["without_group"] += 1
+        for gid in group_ids:
+            group = groups.get(gid)
+            if group is None:
+                group = groups[gid] = Group(gid, ts, ts)
+            group.add(ts, event_id, level, content)
+        return ts, group_ids
+
     def group_lines(self, lines) -> list[Group]:
-        """Read, parse (frozen parser, never learns) and group raw lines, keeping arrival order."""
+        """Treat the given lines as complete: parse and group them, keeping arrival order."""
         groups: dict[str, Group] = {}
-        stats = {"lines": 0, "malformed": 0, "without_group": 0, "unseen_messages": 0}
+        stats = self.new_stats()
         for line in lines:
-            stats["lines"] += 1
-            parsed = self.read(line)
-            if parsed is None:
-                stats["malformed"] += 1
-                continue
-            ts, level, content, group_ids = parsed
-            event_id = self.parser.match(content)
-            stats["unseen_messages"] += event_id == UNSEEN_EVENT_ID
-            if not group_ids:
-                stats["without_group"] += 1
-            for gid in group_ids:
-                group = groups.get(gid)
-                if group is None:
-                    group = groups[gid] = Group(gid, ts, ts)
-                group.add(ts, event_id, level, content)
+            self.add_line(groups, line, stats)
         self.last_stats = stats
         return list(groups.values())
 

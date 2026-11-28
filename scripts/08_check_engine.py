@@ -22,23 +22,9 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from src.config import DATASETS, PROCESSED_DIR  # noqa: E402
-from src.engine import DETECTORS, WINDOW_S, ScoringEngine, load_detector  # noqa: E402
-from src.experiment import PRED_DIR, RESULTS_DIR  # noqa: E402
-
-
-def test_period_lines(dataset: str, seqs: pd.DataFrame) -> list[str]:
-    """All raw lines that can belong to a test group (they all come after the test period starts)."""
-    test = seqs[seqs["split_time"] == "test"]
-    path = DATASETS[dataset.upper()]["log_file"]
-    with open(path, encoding="utf-8", errors="replace") as f:
-        if dataset == "hdfs":  # groups are blocks; every line of a test block is at/after its first line
-            start = int(test["first_line"].min())
-            return [line for i, line in enumerate(f) if i >= start]
-        # BGL: keep lines whose 5-minute window is a test window
-        windows = set(test["window_id"].astype(str))
-        return [line for line in f if (p := line.split(maxsplit=2))[1:2] and p[1].isdigit()
-                and str(int(p[1]) // WINDOW_S) in windows]
+from src.config import PROCESSED_DIR  # noqa: E402
+from src.engine import DETECTORS, ScoringEngine, load_detector  # noqa: E402
+from src.experiment import PRED_DIR, RESULTS_DIR, test_period_lines  # noqa: E402
 
 
 report = {}
