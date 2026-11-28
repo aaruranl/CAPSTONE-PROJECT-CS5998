@@ -1,0 +1,8 @@
+error,pattern,blocks,in_training,training_blocks,training_abnormal,model_score
+false alarm,E1x4 E2x1 E3x3 E4x3 E5x4 E6x1 E7x1 E11x1 E12x1,76,never seen in training,0,0,0.9427
+false alarm,E1x10 E2x1 E3x3 E4x3 E5x10 E6x7 E7x4 E8x3 E9x3 E10x203 E11x1 E12x1 E17x10 E32x10,1,seen in training only as normal,13,0,1.0
+false alarm,E1x11 E2x1 E3x3 E4x3 E5x11 E6x8 E7x4 E8x4 E9x4 E10x203 E17x11 E32x10,1,seen in training only as normal,1,0,1.0
+false alarm,E1x4 E2x1 E3x3 E4x3 E5x4 E6x1 E7x1 E11x1 E12x1 E13x1,1,never seen in training,0,0,0.9425
+missed anomaly,E1x5 E2x1 E3x3 E4x3 E5x5 E6x2 E7x1 E8x1 E9x1 E17x2,6,seen in training only as abnormal,2,2,0.001
+missed anomaly,E1x5 E2x1 E3x3 E4x3 E5x7 E6x2 E7x2 E11x2 E12x2 E17x2,3,never seen in training,0,0,0.0784
+missed anomaly,E1x4 E2x1 E3x3 E4x3 E5x6 E6x1 E7x1 E11x1 E12x1 E17x1,2,never seen in training,0,0,0.0011

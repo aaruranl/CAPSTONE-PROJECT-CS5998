@@ -1,0 +1,17 @@
+split,part,rule,ignored_message_types,tp,false_alarms,missed,precision,recall,f1,false_alarms_per_day
+random,val,FATAL rule,0,105,73,0,0.59,1.0,0.742,3.4
+random,test,FATAL rule,0,211,142,0,0.598,1.0,0.748,3.31
+random,val,FATAL rule minus never-alert messages (>= 5 lines),144,105,6,0,0.946,1.0,0.972,0.28
+random,test,FATAL rule minus never-alert messages (>= 5 lines),144,210,18,1,0.921,0.995,0.957,0.42
+random,val,FATAL rule minus never-alert messages (>= 20 lines),125,105,6,0,0.946,1.0,0.972,0.28
+random,test,FATAL rule minus never-alert messages (>= 20 lines),125,211,18,0,0.921,1.0,0.959,0.42
+random,val,FATAL rule minus never-alert messages (>= 100 lines),75,105,11,0,0.905,1.0,0.95,0.51
+random,test,FATAL rule minus never-alert messages (>= 100 lines),75,211,19,0,0.917,1.0,0.957,0.44
+time,val,FATAL rule,0,22,60,0,0.268,1.0,0.423,7.06
+time,test,FATAL rule,0,225,118,0,0.656,1.0,0.792,2.09
+time,val,FATAL rule minus never-alert messages (>= 5 lines),151,22,4,0,0.846,1.0,0.917,0.47
+time,test,FATAL rule minus never-alert messages (>= 5 lines),151,224,24,1,0.903,0.996,0.947,0.42
+time,val,FATAL rule minus never-alert messages (>= 20 lines),101,22,4,0,0.846,1.0,0.917,0.47
+time,test,FATAL rule minus never-alert messages (>= 20 lines),101,224,24,1,0.903,0.996,0.947,0.42
+time,val,FATAL rule minus never-alert messages (>= 100 lines),73,22,4,0,0.846,1.0,0.917,0.47
+time,test,FATAL rule minus never-alert messages (>= 100 lines),73,224,24,1,0.903,0.996,0.947,0.42

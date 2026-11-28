@@ -1,0 +1,12 @@
+event_id,false_alarm_windows,test_fatal_lines,test_alert_share,train_fatal_lines,train_alert_share,message,in_training
+10,30,5056,0.0,38752.0,0.0,"ciod: Error loading <*> invalid or missing program image, No such file or directory","FATAL in training, never an alert"
+0,22,40390,0.767,,,(never seen in training),never seen in training
+217,20,58,0.0,223.0,0.0,Kill job <NUM> timed out. Block freed.,"FATAL in training, never an alert"
+16,16,4031,0.0,39568.0,0.0,ciod: LOGIN <*> failed: No such file or directory,"FATAL in training, never an alert"
+215,15,208,0.0,1176.0,0.0,"ciod: Error loading <*> program image too big, <NUM> > <NUM>","FATAL in training, never an alert"
+401,15,16128,0.0,21792.0,0.0,"ciod: Error loading <*> invalid or missing program image, Permission denied","FATAL in training, never an alert"
+286,3,32,0.0,2296.0,0.0,ciod: Error creating node map from file <*> <*> <*>,"FATAL in training, never an alert"
+295,2,16,0.0,22024.0,0.0,"ciod: Error loading <*> invalid or missing program image, Exec format error","FATAL in training, never an alert"
+20,1,159,0.094,6574.0,0.021,machine check <*>,"FATAL in training, sometimes an alert"
+206,1,40,0.8,5424.0,0.457,ciod: Error creating node map from file <*> <*> <*> <*>,"FATAL in training, sometimes an alert"
+285,1,8,0.0,512.0,1.0,ciod: Error creating node map from file /p/gb2/pakin1/sweep3d-5x5x400-10mk-3mmi-1024pes-sweep/sweep.map: Device or resource busy,"FATAL in training, sometimes an alert"
