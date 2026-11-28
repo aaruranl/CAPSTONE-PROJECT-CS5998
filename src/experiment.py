@@ -59,6 +59,16 @@ def record(dataset, split, model, kind, parts, val_scores, test_scores, seconds,
     }
 
 
+def test_period_start(dataset: str) -> int:
+    """Log time (unix seconds) at which the time-split test period begins."""
+    cols = ["start_time", "split_time"] + (["window_id"] if dataset == "bgl" else [])
+    seqs = pd.read_parquet(PROCESSED_DIR / dataset / "sequences.parquet", columns=cols)
+    test = seqs[seqs["split_time"] == "test"]
+    if dataset == "bgl":  # the start of the first test window
+        return int(test["window_id"].min()) * BGL_WINDOW_MINUTES * 60
+    return int(test["start_time"].min().timestamp())
+
+
 def test_period_lines(dataset: str, seqs: pd.DataFrame) -> list[str]:
     """All raw lines that can belong to a test group (they all come after the test period starts)."""
     test = seqs[seqs["split_time"] == "test"]
