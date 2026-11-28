@@ -15,7 +15,7 @@ Code:
 ```bash
 uvicorn src.api:app                    # start the API, then open http://127.0.0.1:8000/docs
 python scripts/09_choose_quiet_time.py # ~1.5 min -> reports/results/quiet_time.csv
-python scripts/10_check_api.py         # ~30 s   -> reports/results/api_check.json
+python scripts/10_check_api.py         # ~2.5 min -> reports/results/api_check.json
 ```
 
 ---
@@ -48,9 +48,9 @@ An **API** (Application Programming Interface) is a **service window** for progr
 | `GET /health` | – | Is the service running? Which models are loaded? Live stream status |
 | `GET /detectors` | – | Available detectors per dataset, the default, and each one's test F1 on the time split |
 | `POST /score` | **batch** | The lines sent are complete (e.g. a whole log file). Scores all their groups now |
-| `POST /ingest` | **live** | Lines arrive a few at a time. The API keeps unfinished groups in memory and returns those that **just finished** |
+| `POST /ingest` | **live** | Lines arrive a few at a time. The API keeps unfinished groups in memory and returns those that **just finished**. It can also carry `now`, the current time (added in Milestone 3 step 3) |
 | `POST /flush` | live | End of the stream: scores every group that is still open |
-| `POST /reset` | live | Forgets all open groups (e.g. to restart a demo) |
+| `POST /reset` | live | Starts a new stream (e.g. to restart a demo), optionally saying from when it watches (added in Milestone 3 step 3) |
 
 **A real request and response** (one BGL line with level FATAL):
 
@@ -142,21 +142,23 @@ is a property of how HDFS works, not of the model. Possible future work:
 
 ## 4. Proof: the live API gives the evaluated results
 
-All raw lines of the time-split test period were sent to `POST /ingest` in batches of 10,000 lines
-(as a live feed would), followed by `POST /flush`. The real models were used, with the default
-detectors. Every test group's live alert was then compared with step 3:
+All raw lines from the start of the time-split test period were sent to `POST /ingest` in batches of
+10,000 lines (as a live feed would), followed by `POST /flush`. The real models were used, with the
+default detectors. Every test group's live alert was then compared with the offline evaluation (Milestone 2)
+(mode A of `scripts/10_check_api.py`; mode B, added in the next step, is in [docs/06](06_live_feed_and_store.md)):
 
 | | HDFS (Logistic Regression) | BGL (FATAL rule) |
 |---|---|---|
-| Raw lines replayed | 2,163,435 (217 requests) | 628,954 (63 requests) |
-| Speed through the API | ~127,000 lines/s | ~153,000 lines/s |
+| Raw lines replayed | 2,163,461 (217 requests) | 628,954 (63 requests) |
+| Speed through the API | ~106,000 lines/s | ~133,000 lines/s |
 | Groups finished **during** the stream | **0** | **2,898 of 2,899** |
 | Test groups scored | 115,012 of 115,012 | 2,899 of 2,899 |
 | Test groups cut in two | 0 | 0 |
-| **Alert differences vs step 3** | **0** | **0** |
+| **Alert differences vs the offline evaluation** | **0** | **0** |
 
-- **BGL is truly live:** every window was scored the moment the next one began. Only the very last
-  window had to wait for the flush.
+- **BGL is live:** every window was scored as soon as a line from a later window arrived. Only the
+  very last window had to wait for the flush. (The next step found that in quiet periods this "next line"
+  can take hours, and added a clock signal; see [docs/06](06_live_feed_and_store.md) §4.)
 - **HDFS finished nothing during the stream.** That's expected: the test period lasts only
   **3.6 hours**, which is less than the 13-hour quiet time. All its alerts arrived at the flush.
 - **The chain is now proven end to end:** preprocessing → evaluated models → engine (step 1) →
@@ -168,14 +170,14 @@ Numbers: [`reports/results/api_check.json`](../reports/results/api_check.json).
 
 ## 5. A problem found: the "cold start"
 
-The HDFS replay started in the middle of the log, so the stream also saw **65,430 blocks that had
+The HDFS replay started in the middle of the log, so the stream also judged **65,425 blocks that had
 begun before it started**. It received only their late events (mostly the delete step), and
 **65,041 of them (99.4%) were flagged**. These are false alarms, because a "delete-only" block looks
 broken.
 
-Any monitor switched on in the middle of a running system has this problem. It will be handled in
-step 3 (the replay), for example by not judging groups whose start the monitor never saw. It's
-also worth a sentence in the final report.
+Any monitor switched on in the middle of a running system has this problem. **Fixed in the next step**
+(a cold-start rule plus a 13-hour back-fill): 0 such blocks are judged any more, see
+[docs/06](06_live_feed_and_store.md) §2.
 
 ---
 
@@ -194,7 +196,7 @@ also worth a sentence in the final report.
 
 ## 7. Limitations
 
-- **Open groups live in memory.** If the API restarts, unfinished groups are lost. Step 3 adds a
+- **Open groups live in memory.** If the API restarts, unfinished groups are lost. The next step adds a
   database for the *results*.
 - **No login or authentication.** The API is meant to run locally for the demo; a real deployment
   would need access control.
@@ -218,9 +220,9 @@ that shorter values cut normal blocks in two and cause hundreds of thousands of 
 But the validation period is only a few hours long, so it cannot contain long silences. That is a
 lesson about representativeness: a parameter about *time* must be chosen from a long enough period.
 
-**So is your HDFS system real-time?** Not at block level, and the report says so. BGL is near
-real-time (alerts after at most one 5-minute window). HDFS blocks can only be judged when they
-finish, about 13 h after their last event.
+**So is your HDFS system real-time?** Not at block level, and the report says so. HDFS blocks can
+only be judged when they finish, about 13 h after their last event. BGL is near real-time: with
+the clock signal added in the next step, a window is judged about one second after it ends.
 
 **Why use log timestamps instead of the clock?** So results are reproducible: replaying a day of
 logs in a minute gives the same alerts as living through that day.
@@ -230,4 +232,4 @@ logs in a minute gives the same alerts as living through that day.
 
 **What is the cold-start problem?** A monitor switched on mid-stream sees groups without their
 beginning. For HDFS these half-blocks look abnormal, and 99.4% were flagged. The fix belongs to
-the replay design (step 3).
+the replay design, and the next step fixed it.
