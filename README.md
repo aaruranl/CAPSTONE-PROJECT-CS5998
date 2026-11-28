@@ -34,7 +34,9 @@ model is trained only on past logs and tested on future logs?**
 │   ├── 08_check_engine.py    # proves the scoring engine reproduces the evaluated results
 │   ├── 09_choose_quiet_time.py  # data behind the live HDFS rule (when is a block finished?)
 │   ├── 10_check_api.py       # replays the test period through the API (cold start with / without the rule)
-│   └── 11_check_replay.py    # end to end: log feed → API → PostgreSQL vs the offline results (also via Docker)
+│   ├── 11_check_replay.py    # end to end: log feed → API → PostgreSQL vs the offline results (also via Docker)
+│   ├── 12_false_alarms.py    # false alarms per day, and whether a false-alarm budget holds
+│   └── 13_error_analysis.py  # what the served detectors' errors are, and a refined FATAL rule
 ├── src/
 │   ├── config.py             # all paths, seeds, ratios and parser settings
 │   ├── log_parser.py         # masking + Drain parser with a learn/freeze life-cycle
@@ -54,6 +56,7 @@ model is trained only on past logs and tested on future logs?**
 │   ├── store.py              # alert store: judged groups saved in PostgreSQL
 │   ├── replay.py             # live log feed: replays a raw log file into the API
 │   ├── dashboard_data.py     # the numbers behind the dashboard (tested separately)
+│   ├── operations.py         # false alarms per day, alert budgets, bundled notifications
 │   ├── plot_style.py         # one shared chart style and colour scheme
 │   └── common.py             # shared helpers
 ├── dashboard/app.py          # Streamlit dashboard: live alerts, label check, drift, models
@@ -85,6 +88,8 @@ python scripts/09_choose_quiet_time.py # ~1.5 min, HDFS live rule from training 
 python scripts/10_check_api.py         # ~2.5 min, live API vs offline results, cold start with / without the rule
 cp .env.example .env                   # then put the PostgreSQL connection string in .env
 python scripts/11_check_replay.py      # ~2.5 min, log feed -> API -> PostgreSQL vs offline results
+python scripts/12_false_alarms.py      # ~10 s, false alarms per day and alert budgets (+ figure 13)
+python scripts/13_error_analysis.py    # ~5 s, error analysis of the served detectors
 python -m pytest -q                    # unit tests
 ```
 
@@ -117,4 +122,5 @@ python -m src.replay --dataset bgl     # the live log feed: replays the BGL test
 | Live log feed + alert store (Milestone 3) | Done | [docs/06_live_feed_and_store.md](docs/06_live_feed_and_store.md) |
 | Live dashboard (Milestone 3) | Done | [docs/07_dashboard.md](docs/07_dashboard.md) |
 | Whole system in Docker (Milestone 3) | Done | [docs/08_docker.md](docs/08_docker.md) |
-| False alarms per day + error analysis, final report (Milestone 3) | Planned | |
+| False alarms per day + error analysis (Milestone 3) | Done | [docs/09_false_alarms_and_errors.md](docs/09_false_alarms_and_errors.md) |
+| Final report + reproducibility checklist (Milestone 3) | Planned | |
