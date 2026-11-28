@@ -31,3 +31,22 @@ def fatal_window_ids(lines: pd.DataFrame, window_minutes: int = BGL_WINDOW_MINUT
     fatal = lines["level"].isin(FATAL_LEVELS).to_numpy()
     seconds = lines["timestamp"].to_numpy()[fatal].astype("datetime64[s]").astype(np.int64)
     return np.unique(seconds // (window_minutes * 60))
+
+
+def harmless_fatal_events(train_lines: pd.DataFrame, min_lines: int = 20) -> set[int]:
+    """BGL: message types (events) that were FATAL/FAILURE at least `min_lines` times in
+    TRAINING but never part of a real alert, e.g. "ciod: Error loading <*> invalid or missing
+    program image" (a user's job failed to start, not the machine).
+
+    Found in the error analysis (Milestone 3, step 6). Never-seen messages (event 0) are
+    never on the list: what is unknown cannot be known to be harmless.
+    """
+    fatal = train_lines[train_lines["level"].isin(FATAL_LEVELS) & (train_lines["event_id"] != 0)]
+    stats = fatal.groupby("event_id")["is_alert"].agg(["size", "sum"])
+    return {int(e) for e in stats.index[(stats["size"] >= min_lines) & (stats["sum"] == 0)]}
+
+
+def fatal_window_ids_except(lines: pd.DataFrame, harmless: set[int],
+                            window_minutes: int = BGL_WINDOW_MINUTES) -> np.ndarray:
+    """Like fatal_window_ids, but FATAL/FAILURE lines of a `harmless` message type do not count."""
+    return fatal_window_ids(lines[~lines["event_id"].isin(harmless)], window_minutes)
