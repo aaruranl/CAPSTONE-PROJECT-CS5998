@@ -1,0 +1,99 @@
+{
+  "database": "postgresql 18.7, hosted (Neon)",
+  "api": "already running (http://127.0.0.1:18000)",
+  "bgl": {
+    "detector": "rule_fatal",
+    "run_id": "bgl-20261128-034135-2ca4",
+    "raw_lines_sent": 628954,
+    "requests": 63,
+    "seconds_end_to_end": 15.9,
+    "lines_per_second_end_to_end": 39637,
+    "rows_in_database": 2899,
+    "rows_match_api_responses": true,
+    "alerts_in_database": 343,
+    "test_groups": 2899,
+    "test_groups_in_database": 2899,
+    "test_alert_mismatches_vs_offline": 0,
+    "max_score_difference_vs_offline": 0.0,
+    "other_groups_in_database": 0,
+    "not_judged_started_before_watching": 0,
+    "run_status_in_database": {
+      "run_id": "bgl-20261128-034135-2ca4",
+      "dataset": "bgl",
+      "detector": "rule_fatal",
+      "watching_since": "2005-11-09 04:40:00",
+      "log_time": "2006-01-04 16:00:05",
+      "cold_start_rule": true,
+      "open_groups": 0,
+      "judged_groups": 2899,
+      "alerts": 343,
+      "not_judged_started_before_watching": 0,
+      "groups_reopened": 0,
+      "lines": 628954,
+      "malformed": 0,
+      "without_group": 0,
+      "unseen_messages": 423650
+    },
+    "alert_delay_without_clock_signal": {
+      "all_windows": {
+        "windows": 2899,
+        "median_minutes": 5.9,
+        "p90_minutes": 63.7,
+        "max_minutes": 1067.0
+      },
+      "alerts": {
+        "windows": 343,
+        "median_minutes": 7.3,
+        "p90_minutes": 80.8,
+        "max_minutes": 423.8
+      }
+    }
+  },
+  "hdfs": {
+    "detector": "logreg",
+    "run_id": "hdfs-20261128-034151-9db1",
+    "raw_lines_sent": 7022481,
+    "requests": 703,
+    "seconds_end_to_end": 139.4,
+    "lines_per_second_end_to_end": 50392,
+    "rows_in_database": 115028,
+    "rows_match_api_responses": true,
+    "alerts_in_database": 1758,
+    "test_groups": 115012,
+    "test_groups_in_database": 115012,
+    "test_alert_mismatches_vs_offline": 0,
+    "max_score_difference_vs_offline": 1.341104507446289e-07,
+    "other_groups_in_database": 16,
+    "not_judged_started_before_watching": 348189,
+    "run_status_in_database": {
+      "run_id": "hdfs-20261128-034151-9db1",
+      "dataset": "hdfs",
+      "detector": "logreg",
+      "watching_since": "2008-11-10 18:42:33",
+      "log_time": "2008-11-11 11:16:28",
+      "cold_start_rule": true,
+      "open_groups": 0,
+      "judged_groups": 115028,
+      "alerts": 1758,
+      "not_judged_started_before_watching": 348189,
+      "groups_reopened": 10,
+      "lines": 7022481,
+      "malformed": 0,
+      "without_group": 0,
+      "unseen_messages": 3
+    }
+  },
+  "bgl_paced_with_clock_signal": {
+    "speed": 600,
+    "hours": 6,
+    "max_wait": 3600,
+    "run_id": "bgl-20261128-034413-293c",
+    "requests": 32,
+    "lines_sent": 96,
+    "windows": 10,
+    "median_minutes": 5.7,
+    "p90_minutes": 8.9,
+    "max_minutes": 9.3,
+    "max_real_seconds": 0.93
+  }
+}

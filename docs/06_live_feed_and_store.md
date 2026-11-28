@@ -17,7 +17,7 @@ Code:
 - [`src/store.py`](../src/store.py): the alert store.
 - [`src/stream.py`](../src/stream.py): live scoring, now with the cold-start rule and the clock signal.
 - [`.env.example`](../.env.example): where the database connection string goes (in `.env`, never committed).
-- [`docker-compose.yml`](../docker-compose.yml): an optional local database.
+- [`docker-compose.yml`](../docker-compose.yml): an optional local database (and, since step 5, the whole system; docs/08).
 - Checks: [`scripts/10_check_api.py`](../scripts/10_check_api.py) and [`scripts/11_check_replay.py`](../scripts/11_check_replay.py).
 - Tests: [`tests/test_replay.py`](../tests/test_replay.py), [`tests/test_store.py`](../tests/test_store.py) and [`tests/test_api.py`](../tests/test_api.py).
 
@@ -178,7 +178,7 @@ Singapore data centre). So the database is not tied to this laptop:
 
 The connection is encrypted (`sslmode=require`), and a round trip takes about 14 ms from here.
 For working offline, the same code also runs on a local PostgreSQL in Docker
-(`docker-compose up -d --wait db`, see `.env.example`).
+(`docker-compose --profile local-db up -d --wait db`, see `.env.example`).
 
 **Why SQLAlchemy:** it's a Python library that writes the SQL for whichever database is used. The
 same code runs on **SQLite** in the tests (a file, no server needed) and on **PostgreSQL** in the

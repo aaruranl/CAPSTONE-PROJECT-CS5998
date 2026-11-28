@@ -34,7 +34,7 @@ model is trained only on past logs and tested on future logs?**
 │   ├── 08_check_engine.py    # proves the scoring engine reproduces the evaluated results
 │   ├── 09_choose_quiet_time.py  # data behind the live HDFS rule (when is a block finished?)
 │   ├── 10_check_api.py       # replays the test period through the API (cold start with / without the rule)
-│   └── 11_check_replay.py    # end to end: log feed → API server → PostgreSQL, compared with step 3
+│   └── 11_check_replay.py    # end to end: log feed → API → PostgreSQL vs the offline results (also via Docker)
 ├── src/
 │   ├── config.py             # all paths, seeds, ratios and parser settings
 │   ├── log_parser.py         # masking + Drain parser with a learn/freeze life-cycle
@@ -60,7 +60,8 @@ model is trained only on past logs and tested on future logs?**
 ├── .streamlit/config.toml    # dashboard theme (same colours as the report figures)
 ├── tests/                    # unit tests (python -m pytest -q)
 ├── .env.example              # template for .env: the database connection string (.env is never committed)
-├── docker-compose.yml        # services of the live system (so far: an optional local PostgreSQL)
+├── Dockerfile                # one image for the API, the dashboard and the log feed
+├── docker-compose.yml        # the live system: API + dashboard (+ log feed, optional local PostgreSQL)
 ├── docs/                     # explanation of each project step
 ├── reports/                  # figures, EDA statistics and model results
 ├── models/                   # trained models (generated, not committed)
@@ -87,7 +88,15 @@ python scripts/11_check_replay.py      # ~2.5 min, log feed -> API -> PostgreSQL
 python -m pytest -q                    # unit tests
 ```
 
-Run the live system (three terminals; the alert database is set in `.env`):
+Run the live system with Docker (one command; needs the data and models from the scripts above and `.env`):
+
+```bash
+docker-compose up -d --build                     # API -> http://localhost:8000/docs, dashboard -> http://localhost:8501
+docker-compose run --rm replay --dataset bgl     # the live log feed: replays the BGL test period
+docker-compose down                              # stop everything
+```
+
+Or without Docker (three terminals; the alert database is set in `.env`):
 
 ```bash
 uvicorn src.api:app                    # the scoring API     -> http://127.0.0.1:8000/docs
@@ -107,4 +116,5 @@ python -m src.replay --dataset bgl     # the live log feed: replays the BGL test
 | Scoring API (Milestone 3) | Done | [docs/05_scoring_api.md](docs/05_scoring_api.md) |
 | Live log feed + alert store (Milestone 3) | Done | [docs/06_live_feed_and_store.md](docs/06_live_feed_and_store.md) |
 | Live dashboard (Milestone 3) | Done | [docs/07_dashboard.md](docs/07_dashboard.md) |
-| Docker, error analysis, final report (Milestone 3) | Planned | |
+| Whole system in Docker (Milestone 3) | Done | [docs/08_docker.md](docs/08_docker.md) |
+| False alarms per day + error analysis, final report (Milestone 3) | Planned | |
