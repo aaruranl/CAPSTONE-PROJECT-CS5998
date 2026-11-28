@@ -17,5 +17,10 @@ fastapi==0.165.0
 uvicorn==0.54.0
 httpx==0.29.0    # used by the API tests (FastAPI TestClient)
 
+# Milestone 3 - alert store (PostgreSQL) and live log feed
+sqlalchemy==2.1.9
+psycopg[binary]==3.3.9
+python-dotenv==1.2.4   # reads DATABASE_URL from the .env file
+
 # Testing
 pytest==9.2.0

@@ -21,3 +21,6 @@ reports/results/predictions/
 .DS_Store
 .vscode/
 .idea/
+
+# Secrets: the database connection string (copy .env.example to .env)
+.env

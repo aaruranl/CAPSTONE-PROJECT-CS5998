@@ -1,0 +1,29 @@
+# The services of the live system (Milestone 3).
+# Step 3: an OPTIONAL local alert database, for working without the hosted one (set
+# DATABASE_URL in .env, see .env.example). Step 5 will add the API, the log feed and the dashboard.
+#
+#   docker-compose up -d --wait db    # start PostgreSQL in the background (and wait until it is ready)
+#   docker-compose down               # stop it; the stored alerts stay in the "pgdata" volume
+#   docker-compose down -v            # stop it AND delete the stored alerts
+#
+# Connection string for .env:
+#   DATABASE_URL=postgresql://logs:logs@localhost:5440/logs
+services:
+  db:
+    image: postgres:17
+    environment:
+      POSTGRES_USER: logs
+      POSTGRES_PASSWORD: logs        # a demo password; a real deployment would use a secret
+      POSTGRES_DB: logs
+    ports:
+      - "5440:5432"                  # 5440 on this computer: not the usual 5432/5433, so it cannot clash with another PostgreSQL
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U logs -d logs"]
+      interval: 2s
+      timeout: 3s
+      retries: 20
+
+volumes:
+  pgdata:
