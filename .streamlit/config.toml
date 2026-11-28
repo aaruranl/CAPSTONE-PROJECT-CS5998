@@ -1,0 +1,14 @@
+# Streamlit settings for the dashboard (dashboard/app.py).
+[theme]
+# The same light look as the report figures (src/plot_style.py)
+base = "light"
+primaryColor = "#2a78d6"
+backgroundColor = "#fcfcfb"
+secondaryBackgroundColor = "#f1f0ec"
+textColor = "#0b0b0b"
+
+[browser]
+gatherUsageStats = false   # do not send usage statistics to Streamlit
+
+[server]
+headless = true            # do not open a browser window automatically
