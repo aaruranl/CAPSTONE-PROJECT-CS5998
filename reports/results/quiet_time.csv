@@ -1,0 +1,23 @@
+period,quiet_hours,normal_blocks_cut_%,false_alarms,f1,median_hours_to_alert
+train+validation,0.5,83.033,369409,0.0758,1.2
+train+validation,1.0,74.896,333222,0.0834,2.0
+train+validation,2.0,61.565,273928,0.0996,3.4
+train+validation,4.0,45.652,203618,0.1296,5.5
+train+validation,6.0,33.756,150809,0.1673,7.6
+train+validation,8.0,12.328,55521,0.3531,9.7
+train+validation,10.0,9.517,43029,0.4133,11.7
+train+validation,12.0,1.673,8134,0.7883,13.8
+train+validation,13.0,0.003,716,0.9768,14.8
+train+validation,14.0,0.0,705,0.9771,15.8
+train+validation,16.0,0.0,703,0.9772,17.8
+validation only,0.5,71.045,39403,0.094,1.7
+validation only,1.0,49.591,27508,0.1294,2.5
+validation only,2.0,4.975,2763,0.5967,3.6
+validation only,4.0,0.0,4,0.999,5.6
+validation only,6.0,0.0,4,0.999,7.6
+validation only,8.0,0.0,4,0.999,9.6
+validation only,10.0,0.0,4,0.999,11.6
+validation only,12.0,0.0,4,0.999,13.6
+validation only,13.0,0.0,4,0.999,14.6
+validation only,14.0,0.0,4,0.999,15.6
+validation only,16.0,0.0,4,0.999,17.6

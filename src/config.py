@@ -61,3 +61,13 @@ DRAIN_MAX_CHILDREN = 100
 # timeline into fixed, non-overlapping time windows.
 # ----------------------------------------------------------------------------
 BGL_WINDOW_MINUTES = 5
+
+# ----------------------------------------------------------------------------
+# Live scoring (src/stream.py): when is a group FINISHED and ready to score?
+# BGL: a 5-minute window is finished when a line from a later window arrives
+#      (all 4.7M BGL lines are in time order, so this is exact).
+# HDFS: a block has no "end" message; it is finished after this much silence.
+#      Chosen in scripts/09_choose_quiet_time.py on training + validation data:
+#      the smallest value that (almost) never cuts a normal block in two.
+# ----------------------------------------------------------------------------
+HDFS_QUIET_HOURS = 13
